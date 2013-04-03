@@ -78,7 +78,7 @@ void main()
  printf("\n\r Serial Open \n");
 
   OpenSPI( SPI_FOSC_16,   //Master clock 16mhz
-  MODE_00,                 //?? 
+  MODE_00,                 
   //MODE_01,
   SMPEND);                  //Output data a end of buff
 
@@ -111,17 +111,17 @@ void main()
 //		inputFiltersOff();
 //      mcp2515_loopBack();
 
-
+/*
 		while(1)
 		{
-			stCanFrame  *result;
-			char wast = mcp2515_get_message(result);
+			stCanFrame  result;
+			char wast = mcp2515_get_message(&result);
 			printf("\rget_message done\n");
-
 			Delay10TCYx(0x30);
 
 		}
-/*	
+*/
+	
 		//send a test message
 	
 		while(1)
@@ -144,7 +144,7 @@ void main()
 			
 			Delay10TCYx(0x30);
 		}
-	*/
+
 
 	}
  }
@@ -432,7 +432,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 		printf("\r waiting \n");
 }
 
-void mcp2515_oneShot()		//FIX THIS LATER
+void mcp2515_oneShot()		//FIX THIS LATER //One shot mode changes the CANCTRL reg 
 {
 	chip_active();
 	mcp_write_adress( CANCTRL, ( 1 << OSM));
@@ -515,8 +515,6 @@ int mcp_init(unsigned char speed)
 	
 	mcp_write_adress(CANCTRL, 0); //set the chip to normal mode 
 	
-//	chip_enactive();
-	
 	data = mcp_read_register(CNF1);
 	
 
@@ -556,8 +554,6 @@ char mcp2515_read_status(char type)
 void inputFiltersOff()
 {
 	mcp2515_config();
-	//mcp2515_bit_modify(RXB0CTRL,((1<<RXM1) | (1 <<RXM0)),((1<<RXM1) | (1 <<RXM0)));
-//	mcp2515_bit_modify(RXB1CTRL, ((1<<RXM1) | (1 <<RXM0)),((1<<RXM1) | (1 <<RXM0)));
 	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  ));
 	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  )); 
 	mcp2515_normal();
@@ -572,27 +568,23 @@ char mcp2515_get_message(stCanFrame *inMessage)
 	// read status
 	unsigned char status = mcp2515_read_status(SPI_MCP_RX_STATUS);
 	unsigned char addr;
-	char lenght;
-	unsigned char a,b,c;
-	unsigned char d,e,f,g,h,i;
+	unsigned char id,wast,length, counter;
+	//unsigned char d,e,f,g,h,i;
+	unsigned char data[20];
 	
 	dispError();
 	printf("\r RX_status -> %b \n",status);
 
-//	char y[10];
 
-//	debugReg();
 
 	//lets see if any of the can registers have a message
 	if (bit_is_set(status,6)) {
      	//printf("\rYou got Main in 1 \n");
-		// you got mail in message in buffer 0
 		addr = SPI_MCP_READ_RX;
 
 	}
 	else if (bit_is_set(status,7)) {
 		//printf("\rYou got Mail in 2 \n");
-		// you got mail in message in buffer 1
 		addr = SPI_MCP_READ_RX | 0x04;
 	
 	}
@@ -603,44 +595,34 @@ char mcp2515_get_message(stCanFrame *inMessage)
 	}
 
 	chip_active();
-
 	putcSPI(addr);
-//	putcSPI(0x03); //? new
-	//(*inMessage).id[0] = ReadSPI();
-	//(*inMessage).id[1] = ReadSPI();
-	a = ReadSPI() <<3;
-	a |= ReadSPI() >>5;
-//	b = ReadSPI();
+	id = ReadSPI() <<3;
+	id |= ReadSPI() >>5;
+
 	
-	//guess = (((short)(a<<3)) | ((short)(b>>5)));
-	
-	b = ReadSPI() ;
-	b = ReadSPI();
+	wast = ReadSPI() ;
+	wast = ReadSPI() ;
+	length = ReadSPI() ;
+	counter = 0;
+	while( counter < length)
+	{
+		data[counter] = ReadSPI();
+		counter = counter +1;
+	}
+
 	chip_enactive();
 
-	printf("\r The Id is  %x \n",a);
-	//printf("\r guess %i, %x\n",guess,guess);
-	//(*inMessage).length = ReadSPI();
-	a =ReadSPI();
-	(*inMessage).rtr = ReadSPI();
-	//printf("\raddr %x nad %x\n",a,b);
-	//printf("\raddr %x nad %x\n",(*inMessage).id[0],(*inMessage).id[0]);
-//	for(t =0; t< a; t++)
-//	{
-		
-//		//y = (*inMessage).data[t] = ReadSPI();
-//		y[t] = ReadSPI();
-		//printf("\rThe data %x, is at %x \n",t,y);
-//	}
-//	printf("\r addr = %x \n",c);
+	printf("\r The Id is  %x \n",id);
+	printf("\r The message has %i bytes of data \n",length);
+	counter = 0;
+	while( counter < length)
+	{
+		printf("\r The data at %i is %x  \n",counter, data[counter]);
 	
-//	for( t= 0;t<9;t++)
-//	{
-//		printf("\rThe data %x, is at %x \n",t,y[t]);
-//	}
-//
-  //  //a = mcp2515_read_status(CANINTF);
-//
+		counter = counter +1;
+	}
+	
+
 	if( bit_is_set(status,6))
 	{
 		 mcp2515_bit_modify(CANINTF, (1<<RX0IF),0);
@@ -651,84 +633,10 @@ char mcp2515_get_message(stCanFrame *inMessage)
 		 mcp2515_bit_modify(CANINTF, (1<<RX1IF),0);
 			printf("\r mod 2\n");
 	}
-//	//b = mcp2515_read_status(CANINTF);
-//	printf ("\rCANINTF %x, %x \n",a,b);
-
-
-	//inMessage.id = inMessage.id | (( (short) (temp[1] & 0b11100000)) << 8);
-	
-	/*
-	if (is_bit_set(temp[1], 3) //non standard, remote or extended
-	{
-	
-	
-	}
-	else //standard frame
-	{
-		temp[2] = readSPI();
-		inMessage.lenght = (temp[1] & 0b00000011) >> 6;
-		inMessage.lenght = (temp[2] & 0b11000000) << 2 | inMessage.lenght;
-	
-	}
-
-	// read id
-	//inMessage.id  =        (char)   ReadSPI() << 3;
-	//inMessage.id  =  inMessage.id | ReadSPI() >> 5;
-	
-	//inMessage.control = ReadSPI();
-	//inMessage.lenght  = ReadSPI();
-	*/
 	return addr;
 }
 
 
-void debugReg(void)
-{
-
-	unsigned  char canintf_val;
-	unsigned  char canstat_val ;
-	unsigned  char canRX0contr_val;
-	unsigned  char c;
-	unsigned  unsigned char status = mcp2515_read_status(SPI_MCP_RX_STATUS);
-	unsigned  char data;//, addr, counter;
-	//int addr, counter;
-	unsigned  char addr;
-	printf("\rtest\n");
-	canintf_val = mcp2515_read_status(CANINTF);
-	canstat_val = mcp2515_read_status(CANSTAT);
-    canRX0contr_val = mcp2515_read_status(RXB0CTRL);
-	c = 0x40;
-	printf("\rRX_Status is %x, inf_stat_machine %x, Canstat %x, canRX0contr %x --->0x40= %x \n",status, canintf_val,canstat_val,canRX0contr_val,c);
-	//char temp[3];
-	{
-
-
-
-			printf("\n\rTable 11-1 on page 61 maps\n \r ");
-			printf(" +    ");
-			addr = 0;
-			while(addr < 8)
-			{	
-		
-				printf("%4.4b  ",addr);
-				addr = addr + 1;	
-			}
-			addr = 0;
-			while(addr < 0b01111111)
-			{
-				short counter = 0;
-				printf("\n\r %4.4b -  ", addr >> 4);
-				while(counter < 8)
-				{	
-					data = mcp2515_read_status(addr);
-					printf("%2.2x    ",data);
-					addr = addr+ 1;
-					counter = counter + 1;
-				}
-			}
-
-	}
-}
 
 
 unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
@@ -746,38 +654,10 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 	else if (reg == 2)  reg = 0x04;
 	else if (reg == 1)  reg = 0x02;
 	else if (reg == 0)  reg = 0x00;
-	else printf("something has gone wrong in the register selection part acpect of RX /n");
+	else printf("\rsomething has gone wrong in the register selection part acpect of RX /n");
 	
-	dispError();
-	
-	//unsigned char status = mcp2515_read_status(SPI_READ_STATUS);
-	
-	/* Statusbyte:
-	 *
-	 * Bit	Function
-	 *  2	TXB0CNTRL.TXREQ
-	 *  4	TXB1CNTRL.TXREQ
-	 *  6	TXB2CNTRL.TXREQ
-	 */
-	 
-	 
-//	uint8_t address;
-//	uint8_t t;
-//	SET(LED2_HIGH);
-//	if (bit_is_clear(status, 2)) {
-//		address = 0x00;
-//	}
-//	else if (bit_is_clear(status, 4)) {
-//		address = 0x02;
-//	} 
-//	else if (bit_is_clear(status, 6)) {
-//		address = 0x04;
-//	}
-//	else {
-		// all buffer used => could not send message
-//		return 0;
-//	}
-	
+//	dispError();
+
 	
 	chip_active();
 	putcSPI(SPI_MCP_WRITE_TX | reg);
@@ -810,12 +690,11 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 	chip_enactive();
 	
 	Delay10TCYx(0x30);
-//	_delay_us(1);
-	
+
 	// send message
 	chip_active();
 
-	reg = (reg == 0) ? 1 : reg; //Will this work???
+	reg = (reg == 0) ? 1 : reg; 
 	putcSPI(SPI_MCP_RTS | reg);
 
 	chip_enactive();
@@ -835,27 +714,3 @@ void dispError()
 	return; 
 }
 
-/*	
-	// read DLC
-	char length = putcSPI(0xff) & 0x0f;
-	
-	message->header.length = length;
-	message->header.rtr = (bit_is_set(status, 3)) ? 1 : 0;
-	
-	// read data
-	for (t=0;t<length;t++) {
-		message->data[t] = putcSPI(0xff);
-	}
-	chip_enactive();
-	
-	// clear interrupt flag
-	if (bit_is_set(status, 6)) {
-		mcp2515_bit_modify(CANINTF, (1<<RX0IF), 0);
-	}
-	else {
-		mcp2515_bit_modify(CANINTF, (1<<RX1IF), 0);
-	}
-	
-	return (status & 0x07) + 1;
-}
-*/
