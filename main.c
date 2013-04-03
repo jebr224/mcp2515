@@ -89,6 +89,7 @@ void main()
 	{	
 		int test;
 		unsigned char del;
+		stCanFrame sample;
 	
 		test = mcp_init( 0x07);
 		while ( test != 0)
@@ -107,20 +108,22 @@ void main()
 		
 	//	mcp2515_oneShot();
 		mcp2515_normal();
-		inputFiltersOff();
+//		inputFiltersOff();
+//      mcp2515_loopBack();
+
 
 		while(1)
 		{
-			stCanFrame *result;
+			stCanFrame  *result;
 			char wast = mcp2515_get_message(result);
 			printf("\rget_message done\n");
 
 			Delay10TCYx(0x30);
 
 		}
-	
+/*	
 		//send a test message
-	/*
+	
 		while(1)
 		{	
 			stCanFrame sample;
@@ -142,7 +145,6 @@ void main()
 			Delay10TCYx(0x30);
 		}
 	*/
-
 
 	}
  }
@@ -456,9 +458,9 @@ int mcp_init(unsigned char speed)
 	// 20 Mhz crystal at a speed of 125k works very well
 	
 	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
-	timingReg[1] = ( (1<<BRP2));					  //Value for CNF1
-	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)  | (1<<PHSEG2) | (1<<PHSEG1)  ); //Value for CNF2
-	timingReg[3] = ((1<<PHSEG20) | (1<<PHSEG22)); //Value for CNF3 
+	timingReg[1] = (( 1 << SJW0)|(1<<BRP2));					  //Value for CNF1
+	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)  | (1<<PHSEG12) | (1<<PHSEG11) | (1<<PHSEG0) ); //Value for CNF2
+	timingReg[3] = ( (1<<PHSEG20) |(1<<PHSEG22)); //Value for CNF3 
 	
 	
 	// 20 Mhz crystal at a speed of 1 Mbit (it looks like it would work, but the transiver is not fast enough
@@ -494,7 +496,8 @@ int mcp_init(unsigned char speed)
 	putcSPI(timingReg[2]); 	                //Value for CNF2
 	putcSPI(timingReg[1]);                  //Value for CNF1
 	putcSPI(timingReg[0]);    		        //Value for CANINTE	
-   
+    
+	chip_enactive();
 
 	//High impedance on the RXnBF pin
 	mcp_write_adress(BFPCTRL, 0);   
@@ -506,13 +509,13 @@ int mcp_init(unsigned char speed)
 	// Both RX buffers have filters disabled
 	//page 27 //  RXM1 = 6  RXM0 = 5  
 	// (1 << 6) || ( 1 << 5) = b01100000 = 0x60
-	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR) | (1<<BUKT)));
-	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR) | (1<<BUKT))); 
+	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0)));// | (1<<RXRTR) | (1<<BUKT)));
+	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0)));// | (1<<RXRTR) | (1<<BUKT))); 
 	
 	
 	mcp_write_adress(CANCTRL, 0); //set the chip to normal mode 
 	
-	chip_enactive();
+//	chip_enactive();
 	
 	data = mcp_read_register(CNF1);
 	
@@ -824,8 +827,11 @@ void dispError()
 {
 	unsigned char rec_error = mcp_read_register(REC);
 	unsigned char tec_error = mcp_read_register(TEC);
+	unsigned char error_flags =mcp_read_register(EFLG);
+
 	
 	printf("\r the rec_error is %i and the tec error is %i  \n",rec_error, tec_error);
+	printf("\rThe error byte -> %b \n",error_flags);
 	return; 
 }
 

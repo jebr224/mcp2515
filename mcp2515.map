@@ -1,63 +1,63 @@
 MPLINK 4.38, Linker
-Linker Map File - Created Tue Apr 02 21:43:20 2013
+Linker Map File - Created Tue Apr 02 23:42:48 2013
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                _entry_scn       code   0x000000    program   0x000006
                    .cinit    romdata   0x000006    program   0x00001a
-             .code_main.o       code   0x000020    program   0x000f0c
-         .code_vfprintf.o       code   0x000f2c    program   0x000c22
-             .stringtable    romdata   0x001b4e    program   0x000485
-        .romdata_printf.o    romdata   0x001fd3    program   0x000000
-        .romdata___init.o    romdata   0x001fd3    program   0x000000
-       .romdata_fxm3232.o    romdata   0x001fd3    program   0x000000
-      .romdata_spi_writ.o    romdata   0x001fd3    program   0x000000
-      .idata_spi_read.o_i    romdata   0x001fd3    program   0x000000
-         .romdata_uopen.o    romdata   0x001fd3    program   0x000000
-         .idata_uopen.o_i    romdata   0x001fd3    program   0x000000
-      .romdata_spi_open.o    romdata   0x001fd3    program   0x000000
-          .idata_putc.o_i    romdata   0x001fd3    program   0x000000
-         .romdata_c018i.o    romdata   0x001fd3    program   0x000000
-          .idata_main.o_i    romdata   0x001fd3    program   0x000001
-               _cinit_scn       code   0x001fd4    program   0x00009e
-           .code_printf.o       code   0x002072    program   0x000098
-            .code_uopen.o       code   0x00210a    program   0x00008a
-             .code_putc.o       code   0x002194    program   0x000084
-          .code_fxm3232.o       code   0x002218    program   0x000070
-         .code_spi_open.o       code   0x002288    program   0x000068
-                   STRING       code   0x0022f0    program   0x000066
-                     PROG       code   0x002356    program   0x00005a
-         .code_fxd3232u.o       code   0x0023b0    program   0x000048
-         .code_spi_writ.o       code   0x0023f8    program   0x00003c
-         .code_spi_read.o       code   0x002434    program   0x00002e
-                    CTYPE       code   0x002462    program   0x000024
-                    .code       code   0x002486    program   0x000020
-             _startup_scn       code   0x0024a6    program   0x00001c
-                    STDIO       code   0x0024c2    program   0x00001c
-             D100TCYXCODE       code   0x0024de    program   0x00001c
-              D10TCYXCODE       code   0x0024fa    program   0x000016
-      .romdata_vfprintf.o    romdata   0x002510    program   0x000011
-       .idata_fxm3232.o_i    romdata   0x002521    program   0x000000
-    .romdata__user_putc.o    romdata   0x002521    program   0x000000
-    .idata__user_putc.o_i    romdata   0x002521    program   0x000000
-          .romdata_putc.o    romdata   0x002521    program   0x000000
-      .romdata_fxd3232u.o    romdata   0x002521    program   0x000000
-      .idata_fxd3232u.o_i    romdata   0x002521    program   0x000000
-         .idata_c018i.o_i    romdata   0x002521    program   0x000000
-          .romdata_main.o    romdata   0x002521    program   0x000000
-      .idata_spi_open.o_i    romdata   0x002521    program   0x000000
-      .romdata_spi_read.o    romdata   0x002521    program   0x000000
-      .idata_spi_writ.o_i    romdata   0x002521    program   0x000000
-        .idata___init.o_i    romdata   0x002521    program   0x000000
-        .idata_printf.o_i    romdata   0x002521    program   0x000000
-        .romdata_stdout.o    romdata   0x002521    program   0x000000
-      .idata_vfprintf.o_i    romdata   0x002521    program   0x000000
-           .code_stdout.o       code   0x002522    program   0x000000
-       .code__user_putc.o       code   0x002522    program   0x000002
-            .code_c018i.o       code   0x002522    program   0x000000
-           .code___init.o       code   0x002524    program   0x000002
-        .idata_stdout.o_i    romdata   0x002526    program   0x000002
+             .code_main.o       code   0x000020    program   0x000f46
+         .code_vfprintf.o       code   0x000f66    program   0x000c22
+             .stringtable    romdata   0x001b88    program   0x00049d
+        .romdata_printf.o    romdata   0x002025    program   0x000000
+        .romdata___init.o    romdata   0x002025    program   0x000000
+       .romdata_fxm3232.o    romdata   0x002025    program   0x000000
+      .romdata_spi_writ.o    romdata   0x002025    program   0x000000
+      .idata_spi_read.o_i    romdata   0x002025    program   0x000000
+         .romdata_uopen.o    romdata   0x002025    program   0x000000
+         .idata_uopen.o_i    romdata   0x002025    program   0x000000
+      .romdata_spi_open.o    romdata   0x002025    program   0x000000
+          .idata_putc.o_i    romdata   0x002025    program   0x000000
+         .romdata_c018i.o    romdata   0x002025    program   0x000000
+          .idata_main.o_i    romdata   0x002025    program   0x000001
+               _cinit_scn       code   0x002026    program   0x00009e
+           .code_printf.o       code   0x0020c4    program   0x000098
+            .code_uopen.o       code   0x00215c    program   0x00008a
+             .code_putc.o       code   0x0021e6    program   0x000084
+          .code_fxm3232.o       code   0x00226a    program   0x000070
+         .code_spi_open.o       code   0x0022da    program   0x000068
+                   STRING       code   0x002342    program   0x000066
+                     PROG       code   0x0023a8    program   0x00005a
+         .code_fxd3232u.o       code   0x002402    program   0x000048
+         .code_spi_writ.o       code   0x00244a    program   0x00003c
+         .code_spi_read.o       code   0x002486    program   0x00002e
+                    CTYPE       code   0x0024b4    program   0x000024
+                    .code       code   0x0024d8    program   0x000020
+             _startup_scn       code   0x0024f8    program   0x00001c
+                    STDIO       code   0x002514    program   0x00001c
+             D100TCYXCODE       code   0x002530    program   0x00001c
+              D10TCYXCODE       code   0x00254c    program   0x000016
+      .romdata_vfprintf.o    romdata   0x002562    program   0x000011
+       .idata_fxm3232.o_i    romdata   0x002573    program   0x000000
+    .romdata__user_putc.o    romdata   0x002573    program   0x000000
+    .idata__user_putc.o_i    romdata   0x002573    program   0x000000
+          .romdata_putc.o    romdata   0x002573    program   0x000000
+      .romdata_fxd3232u.o    romdata   0x002573    program   0x000000
+      .idata_fxd3232u.o_i    romdata   0x002573    program   0x000000
+         .idata_c018i.o_i    romdata   0x002573    program   0x000000
+          .romdata_main.o    romdata   0x002573    program   0x000000
+      .idata_spi_open.o_i    romdata   0x002573    program   0x000000
+      .romdata_spi_read.o    romdata   0x002573    program   0x000000
+      .idata_spi_writ.o_i    romdata   0x002573    program   0x000000
+        .idata___init.o_i    romdata   0x002573    program   0x000000
+        .idata_printf.o_i    romdata   0x002573    program   0x000000
+        .romdata_stdout.o    romdata   0x002573    program   0x000000
+      .idata_vfprintf.o_i    romdata   0x002573    program   0x000000
+           .code_stdout.o       code   0x002574    program   0x000000
+       .code__user_putc.o       code   0x002574    program   0x000002
+            .code_c018i.o       code   0x002574    program   0x000000
+           .code___init.o       code   0x002576    program   0x000002
+        .idata_stdout.o_i    romdata   0x002578    program   0x000002
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -115,193 +115,194 @@ Linker Map File - Created Tue Apr 02 21:43:20 2013
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x002520      
-                            0x002522    0x002527      
+                            0x000000    0x002572      
+                            0x002574    0x002579      
                             0x300001    0x300003      
                             0x300006    0x300006      
-            9515 out of 16664 program addresses used, program memory utilization is 57%
+            9597 out of 16664 program addresses used, program memory utilization is 57%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   D100_1   0x0024ec    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-                    D100x   0x0024ea    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-                    D10_1   0x00250a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-                     D10x   0x002502    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-             Delay100TCYx   0x0024de    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-              Delay10TCYx   0x0024fa    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-                 FXD3232U   0x0023b0    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxd3232u.c
-                 FXM1616S   0x002356    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
-                  FXM3232   0x002218    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm3232.c
-                  OpenSPI   0x002288    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_open.c
-                OpenUSART   0x00210a    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\uopen.c
-                  ReadSPI   0x002434    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_read.c
-               TSIGN1616A   0x0023a2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
-                 WriteSPI   0x0023f8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_writ.c
-                   _2jEnd   0x002340    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-       _D100TCYXCODE_0008   0x0024e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0012   0x0024f0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0018   0x0024f6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-        _D10TCYXCODE_000A   0x002504    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000C   0x002506    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000E   0x002508    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-       ___return_lbl00000   0x0023f6    program     static                          
+                   D100_1   0x00253e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+                    D100x   0x00253c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+                    D10_1   0x00255c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+                     D10x   0x002554    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+             Delay100TCYx   0x002530    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+              Delay10TCYx   0x00254c    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+                 FXD3232U   0x002402    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxd3232u.c
+                 FXM1616S   0x0023a8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
+                  FXM3232   0x00226a    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm3232.c
+                  OpenSPI   0x0022da    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_open.c
+                OpenUSART   0x00215c    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\uopen.c
+                  ReadSPI   0x002486    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_read.c
+               TSIGN1616A   0x0023f4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
+                 WriteSPI   0x00244a    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_writ.c
+                   _2jEnd   0x002392    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+       _D100TCYXCODE_0008   0x002538    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0012   0x002542    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0018   0x002548    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+        _D10TCYXCODE_000A   0x002556    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000C   0x002558    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000E   0x00255a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+       ___return_lbl00000   0x002448    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00000   0x002286    program     static                          
-       ___return_lbl00001   0x0024c0    program     static                          
-       ___return_lbl00002   0x002070    program     static                          
+       ___return_lbl00000   0x0022d8    program     static                          
+       ___return_lbl00001   0x002512    program     static                          
+       ___return_lbl00002   0x0020c2    program     static                          
                __config_0   0x300001    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
                __config_1   0x300002    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
                __config_2   0x300003    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
                __config_3   0x300006    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                   __init   0x002524    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\__init.c
-                   __pa_0   0x00186c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_1   0x001874    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_10   0x001928    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_11   0x001936    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_12   0x00194c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_13   0x001966    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_14   0x00197e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_15   0x00198e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_16   0x0019a4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_17   0x0019b6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_18   0x0019c8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_19   0x0019d2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_2   0x00187e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_20   0x0019e2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_21   0x0019f2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_22   0x001a02    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_23   0x001a0e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_24   0x001a1c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_25   0x001a24    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_26   0x001a2e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_27   0x001a38    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_28   0x001a40    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_29   0x001a4e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_3   0x001888    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_30   0x001a6a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_31   0x001a84    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_32   0x001a9e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_33   0x001ab6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_34   0x001ac0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_35   0x001ace    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_36   0x001ad6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_37   0x001ae0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_38   0x001af0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_39   0x001afe    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_4   0x0018a0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_40   0x001b0a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_41   0x001b16    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_42   0x001b1e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_43   0x001b28    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_44   0x001b2e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_45   0x001b38    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_46   0x001b44    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_5   0x0018b4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_6   0x0018d0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_7   0x0018da    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_8   0x0018e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_9   0x001908    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-               __string_0   0x001fc2    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_1   0x001f9d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_10   0x001e5d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_11   0x001e4a    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_12   0x001e17    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_13   0x001df5    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_14   0x001dc1    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_15   0x001d9d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_16   0x001d6c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_17   0x001d4a    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_18   0x001d3e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_19   0x001d27    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_2   0x001f80    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_20   0x001d13    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_21   0x001cee    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_22   0x001cdc    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_23   0x001cd3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_24   0x001cca    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_25   0x001cc3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_26   0x001c72    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_27   0x001c51    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_28   0x001c4a    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_29   0x001c42    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_3   0x001f5e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_30   0x001c35    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_31   0x001c2b    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_32   0x001bf6    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_33   0x001bae    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_34   0x001ba3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_35   0x001b98    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_36   0x001b86    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_37   0x001b81    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_38   0x001b7f    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_39   0x001b4e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_4   0x001f39    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_5   0x001f26    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_6   0x001ef3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_7   0x001ed3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_8   0x001e9f    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_9   0x001e7e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __tmplbl_42   0x001a02    program     static                          
-              __tmplbl_43   0x00184a    program     static                          
-              __tmplbl_44   0x001830    program     static                          
-              __tmplbl_85   0x000f82    program     static                          
-            __zero_memory   0x002486    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                _do_cinit   0x001fd4    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
+                   __init   0x002576    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\__init.c
+                   __pa_0   0x0018a6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_1   0x0018ae    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_10   0x001962    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_11   0x001970    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_12   0x001986    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_13   0x0019a0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_14   0x0019b8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_15   0x0019c8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_16   0x0019de    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_17   0x0019f0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_18   0x001a02    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_19   0x001a0c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_2   0x0018b8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_20   0x001a1c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_21   0x001a2c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_22   0x001a3c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_23   0x001a48    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_24   0x001a56    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_25   0x001a5e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_26   0x001a68    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_27   0x001a72    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_28   0x001a7a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_29   0x001a88    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_3   0x0018c2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_30   0x001aa4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_31   0x001abe    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_32   0x001ad8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_33   0x001af0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_34   0x001afa    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_35   0x001b08    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_36   0x001b10    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_37   0x001b1a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_38   0x001b2a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_39   0x001b38    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_4   0x0018da    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_40   0x001b44    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_41   0x001b50    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_42   0x001b58    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_43   0x001b62    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_44   0x001b68    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_45   0x001b72    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_46   0x001b7e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_5   0x0018ee    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_6   0x00190a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_7   0x001914    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_8   0x001920    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_9   0x001942    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+               __string_0   0x002014    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_1   0x001fef    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_10   0x001eaf    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_11   0x001e9c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_12   0x001e69    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_13   0x001e47    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_14   0x001e13    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_15   0x001def    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_16   0x001dbe    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_17   0x001d9c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_18   0x001d90    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_19   0x001d79    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_2   0x001fd2    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_20   0x001d65    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_21   0x001d40    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_22   0x001d2e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_23   0x001d25    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_24   0x001d1c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_25   0x001d15    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_26   0x001cc4    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_27   0x001ca3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_28   0x001c9c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_29   0x001c94    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_3   0x001fb0    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_30   0x001c87    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_31   0x001c7d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_32   0x001c48    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_33   0x001c00    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_34   0x001bf5    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_35   0x001bea    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_36   0x001bd8    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_37   0x001bd3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_38   0x001bd1    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_39   0x001ba0    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_4   0x001f8b    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_40   0x001b88    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_5   0x001f78    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_6   0x001f45    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_7   0x001f25    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_8   0x001ef1    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_9   0x001ed0    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __tmplbl_42   0x001a3c    program     static                          
+              __tmplbl_43   0x001884    program     static                          
+              __tmplbl_44   0x00186a    program     static                          
+              __tmplbl_85   0x000fbc    program     static                          
+            __zero_memory   0x0024d8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                _do_cinit   0x002026    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
-                   _false   0x0023f2    program     static                          
-                 _startup   0x0024a6    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
-              _usart_putc   0x0024c2    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
-               _user_putc   0x002522    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\_user_putc.c
-               bit_is_set   0x000198    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              chip_active   0x0001dc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-            chip_enactive   0x0001ea    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                compare_l   0x00249c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                copy_loop   0x002046    program     static                          
-            copy_one_byte   0x00204c    program     static                          
-                 debugReg   0x0009d4    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                dispError   0x000ebe    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                     done   0x002070    program     static                          
-             done_copying   0x00205a    program     static                          
-          inputFiltersOff   0x0007c2    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                  isdigit   0x002462    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
-                     jEnd   0x00230a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
-                     jEnd   0x002342    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                    jLoop   0x002300    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
-                    jLoop   0x00232a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                   jMatch   0x002482    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
-                 jNoMatch   0x002484    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
-                     loop   0x0024b6    program     static                          
-                     loop   0x0024d2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
-                     loop   0x0023be    program     static                          
-                   loop_h   0x002494    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                   loop_l   0x00249e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                   _false   0x002444    program     static                          
+                 _startup   0x0024f8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
+              _usart_putc   0x002514    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
+               _user_putc   0x002574    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\_user_putc.c
+               bit_is_set   0x000196    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              chip_active   0x0001da    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+            chip_enactive   0x0001e8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                compare_l   0x0024ee    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                copy_loop   0x002098    program     static                          
+            copy_one_byte   0x00209e    program     static                          
+                 debugReg   0x0009d0    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                dispError   0x000eba    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                     done   0x0020c2    program     static                          
+             done_copying   0x0020ac    program     static                          
+          inputFiltersOff   0x0007be    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                  isdigit   0x0024b4    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
+                     jEnd   0x00235c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
+                     jEnd   0x002394    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                    jLoop   0x002352    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
+                    jLoop   0x00237c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                   jMatch   0x0024d4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
+                 jNoMatch   0x0024d6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
+                     loop   0x002508    program     static                          
+                     loop   0x002524    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
+                     loop   0x002410    program     static                          
+                   loop_h   0x0024e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                   loop_l   0x0024f0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
                      main   0x000020    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-       mcp2515_bit_modify   0x000268    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_config   0x000572    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-      mcp2515_get_message   0x000800    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_listen   0x00044a    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-         mcp2515_loopBack   0x0004de    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_normal   0x0002aa    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-          mcp2515_oneShot   0x000646    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-      mcp2515_read_status   0x000794    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-     mcp2515_send_message   0x000bfc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-            mcp2515_sleep   0x000334    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_wakeUp   0x0003c8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                 mcp_init   0x00065a    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-        mcp_read_register   0x0001f8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-         mcp_write_adress   0x000230    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                   printf   0x002072    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\printf.c
-                     putc   0x002194    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\putc.c
-                 s_digits   0x002510    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-            s_put_n_chars   0x000f2c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   strlen   0x0022f0    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
-                strlenpgm   0x00230c    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                     test   0x001fee    program     static                          
-                 vfprintf   0x000f58    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-               zero_block   0x002494    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+       mcp2515_bit_modify   0x000266    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_config   0x000570    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+      mcp2515_get_message   0x0007fc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_listen   0x000448    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+         mcp2515_loopBack   0x0004dc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_normal   0x0002a8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+          mcp2515_oneShot   0x000644    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+      mcp2515_read_status   0x000790    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+     mcp2515_send_message   0x000bf8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+            mcp2515_sleep   0x000332    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_wakeUp   0x0003c6    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                 mcp_init   0x000658    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+        mcp_read_register   0x0001f6    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+         mcp_write_adress   0x00022e    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                   printf   0x0020c4    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\printf.c
+                     putc   0x0021e6    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\putc.c
+                 s_digits   0x002562    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+            s_put_n_chars   0x000f66    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   strlen   0x002342    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
+                strlenpgm   0x00235e    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                     test   0x002040    program     static                          
+                 vfprintf   0x000f92    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+               zero_block   0x0024e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
                    ADCON0   0x000fc2       data     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
                ADCON0bits   0x000fc2       data     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
                    ADCON1   0x000fc1       data     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
@@ -1087,175 +1088,176 @@ Linker Map File - Created Tue Apr 02 21:43:20 2013
                    _entry   0x000000    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
        ___return_lbl00000   0x000004    program     static                          
                      main   0x000020    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               bit_is_set   0x000198    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              chip_active   0x0001dc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-            chip_enactive   0x0001ea    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-        mcp_read_register   0x0001f8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-         mcp_write_adress   0x000230    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-       mcp2515_bit_modify   0x000268    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_normal   0x0002aa    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-            mcp2515_sleep   0x000334    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_wakeUp   0x0003c8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_listen   0x00044a    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-         mcp2515_loopBack   0x0004de    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-           mcp2515_config   0x000572    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-          mcp2515_oneShot   0x000646    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                 mcp_init   0x00065a    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-      mcp2515_read_status   0x000794    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-          inputFiltersOff   0x0007c2    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-      mcp2515_get_message   0x000800    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                 debugReg   0x0009d4    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-     mcp2515_send_message   0x000bfc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                dispError   0x000ebe    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-            s_put_n_chars   0x000f2c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                 vfprintf   0x000f58    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-              __tmplbl_85   0x000f82    program     static                          
-              __tmplbl_44   0x001830    program     static                          
-              __tmplbl_43   0x00184a    program     static                          
-                   __pa_0   0x00186c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_1   0x001874    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_2   0x00187e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_3   0x001888    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_4   0x0018a0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_5   0x0018b4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_6   0x0018d0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_7   0x0018da    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_8   0x0018e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                   __pa_9   0x001908    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_10   0x001928    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_11   0x001936    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_12   0x00194c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_13   0x001966    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_14   0x00197e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_15   0x00198e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_16   0x0019a4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_17   0x0019b6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_18   0x0019c8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_19   0x0019d2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_20   0x0019e2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_21   0x0019f2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-              __tmplbl_42   0x001a02    program     static                          
-                  __pa_22   0x001a02    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_23   0x001a0e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_24   0x001a1c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_25   0x001a24    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_26   0x001a2e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_27   0x001a38    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_28   0x001a40    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_29   0x001a4e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_30   0x001a6a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_31   0x001a84    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_32   0x001a9e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_33   0x001ab6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_34   0x001ac0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_35   0x001ace    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_36   0x001ad6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_37   0x001ae0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_38   0x001af0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_39   0x001afe    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_40   0x001b0a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_41   0x001b16    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_42   0x001b1e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_43   0x001b28    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_44   0x001b2e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_45   0x001b38    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-                  __pa_46   0x001b44    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-              __string_39   0x001b4e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_38   0x001b7f    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_37   0x001b81    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_36   0x001b86    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_35   0x001b98    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_34   0x001ba3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_33   0x001bae    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_32   0x001bf6    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_31   0x001c2b    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_30   0x001c35    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_29   0x001c42    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_28   0x001c4a    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_27   0x001c51    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_26   0x001c72    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_25   0x001cc3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_24   0x001cca    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_23   0x001cd3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_22   0x001cdc    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_21   0x001cee    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_20   0x001d13    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_19   0x001d27    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_18   0x001d3e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_17   0x001d4a    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_16   0x001d6c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_15   0x001d9d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_14   0x001dc1    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_13   0x001df5    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_12   0x001e17    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_11   0x001e4a    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-              __string_10   0x001e5d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_9   0x001e7e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_8   0x001e9f    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_7   0x001ed3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_6   0x001ef3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_5   0x001f26    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_4   0x001f39    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_3   0x001f5e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_2   0x001f80    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_1   0x001f9d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-               __string_0   0x001fc2    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
-                _do_cinit   0x001fd4    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
-                     test   0x001fee    program     static                          
-                copy_loop   0x002046    program     static                          
-            copy_one_byte   0x00204c    program     static                          
-             done_copying   0x00205a    program     static                          
-                     done   0x002070    program     static                          
-       ___return_lbl00002   0x002070    program     static                          
-                   printf   0x002072    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\printf.c
-                OpenUSART   0x00210a    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\uopen.c
-                     putc   0x002194    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\putc.c
-                  FXM3232   0x002218    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm3232.c
-       ___return_lbl00000   0x002286    program     static                          
-                  OpenSPI   0x002288    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_open.c
-                   strlen   0x0022f0    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
-                    jLoop   0x002300    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
-                     jEnd   0x00230a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
-                strlenpgm   0x00230c    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                    jLoop   0x00232a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                   _2jEnd   0x002340    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                     jEnd   0x002342    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
-                 FXM1616S   0x002356    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
-               TSIGN1616A   0x0023a2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
-                 FXD3232U   0x0023b0    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxd3232u.c
-                     loop   0x0023be    program     static                          
-                   _false   0x0023f2    program     static                          
-       ___return_lbl00000   0x0023f6    program     static                          
-                 WriteSPI   0x0023f8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_writ.c
-                  ReadSPI   0x002434    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_read.c
-                  isdigit   0x002462    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
-                   jMatch   0x002482    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
-                 jNoMatch   0x002484    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
-            __zero_memory   0x002486    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                   loop_h   0x002494    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-               zero_block   0x002494    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                compare_l   0x00249c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                   loop_l   0x00249e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
-                 _startup   0x0024a6    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
-                     loop   0x0024b6    program     static                          
-       ___return_lbl00001   0x0024c0    program     static                          
-              _usart_putc   0x0024c2    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
-                     loop   0x0024d2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
-             Delay100TCYx   0x0024de    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0008   0x0024e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-                    D100x   0x0024ea    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-                   D100_1   0x0024ec    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0012   0x0024f0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0018   0x0024f6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
-              Delay10TCYx   0x0024fa    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-                     D10x   0x002502    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000A   0x002504    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000C   0x002506    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000E   0x002508    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-                    D10_1   0x00250a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
-                 s_digits   0x002510    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
-               _user_putc   0x002522    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\_user_putc.c
-                   __init   0x002524    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\__init.c
+               bit_is_set   0x000196    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              chip_active   0x0001da    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+            chip_enactive   0x0001e8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+        mcp_read_register   0x0001f6    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+         mcp_write_adress   0x00022e    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+       mcp2515_bit_modify   0x000266    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_normal   0x0002a8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+            mcp2515_sleep   0x000332    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_wakeUp   0x0003c6    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_listen   0x000448    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+         mcp2515_loopBack   0x0004dc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+           mcp2515_config   0x000570    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+          mcp2515_oneShot   0x000644    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                 mcp_init   0x000658    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+      mcp2515_read_status   0x000790    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+          inputFiltersOff   0x0007be    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+      mcp2515_get_message   0x0007fc    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                 debugReg   0x0009d0    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+     mcp2515_send_message   0x000bf8    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                dispError   0x000eba    program     extern C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+            s_put_n_chars   0x000f66    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                 vfprintf   0x000f92    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+              __tmplbl_85   0x000fbc    program     static                          
+              __tmplbl_44   0x00186a    program     static                          
+              __tmplbl_43   0x001884    program     static                          
+                   __pa_0   0x0018a6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_1   0x0018ae    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_2   0x0018b8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_3   0x0018c2    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_4   0x0018da    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_5   0x0018ee    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_6   0x00190a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_7   0x001914    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_8   0x001920    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                   __pa_9   0x001942    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_10   0x001962    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_11   0x001970    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_12   0x001986    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_13   0x0019a0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_14   0x0019b8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_15   0x0019c8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_16   0x0019de    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_17   0x0019f0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_18   0x001a02    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_19   0x001a0c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_20   0x001a1c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_21   0x001a2c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+              __tmplbl_42   0x001a3c    program     static                          
+                  __pa_22   0x001a3c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_23   0x001a48    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_24   0x001a56    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_25   0x001a5e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_26   0x001a68    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_27   0x001a72    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_28   0x001a7a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_29   0x001a88    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_30   0x001aa4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_31   0x001abe    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_32   0x001ad8    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_33   0x001af0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_34   0x001afa    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_35   0x001b08    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_36   0x001b10    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_37   0x001b1a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_38   0x001b2a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_39   0x001b38    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_40   0x001b44    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_41   0x001b50    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_42   0x001b58    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_43   0x001b62    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_44   0x001b68    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_45   0x001b72    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+                  __pa_46   0x001b7e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+              __string_40   0x001b88    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_39   0x001ba0    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_38   0x001bd1    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_37   0x001bd3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_36   0x001bd8    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_35   0x001bea    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_34   0x001bf5    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_33   0x001c00    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_32   0x001c48    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_31   0x001c7d    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_30   0x001c87    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_29   0x001c94    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_28   0x001c9c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_27   0x001ca3    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_26   0x001cc4    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_25   0x001d15    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_24   0x001d1c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_23   0x001d25    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_22   0x001d2e    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_21   0x001d40    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_20   0x001d65    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_19   0x001d79    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_18   0x001d90    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_17   0x001d9c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_16   0x001dbe    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_15   0x001def    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_14   0x001e13    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_13   0x001e47    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_12   0x001e69    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_11   0x001e9c    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+              __string_10   0x001eaf    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_9   0x001ed0    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_8   0x001ef1    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_7   0x001f25    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_6   0x001f45    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_5   0x001f78    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_4   0x001f8b    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_3   0x001fb0    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_2   0x001fd2    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_1   0x001fef    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+               __string_0   0x002014    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
+                _do_cinit   0x002026    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
+                     test   0x002040    program     static                          
+                copy_loop   0x002098    program     static                          
+            copy_one_byte   0x00209e    program     static                          
+             done_copying   0x0020ac    program     static                          
+       ___return_lbl00002   0x0020c2    program     static                          
+                     done   0x0020c2    program     static                          
+                   printf   0x0020c4    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\printf.c
+                OpenUSART   0x00215c    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\uopen.c
+                     putc   0x0021e6    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\putc.c
+                  FXM3232   0x00226a    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm3232.c
+       ___return_lbl00000   0x0022d8    program     static                          
+                  OpenSPI   0x0022da    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_open.c
+                   strlen   0x002342    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
+                    jLoop   0x002352    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
+                     jEnd   0x00235c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\strlen.asm
+                strlenpgm   0x00235e    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                    jLoop   0x00237c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                   _2jEnd   0x002392    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                     jEnd   0x002394    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\slenpgm.asm
+                 FXM1616S   0x0023a8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
+               TSIGN1616A   0x0023f4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxm1616s.asm
+                 FXD3232U   0x002402    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\math\fxd3232u.c
+                     loop   0x002410    program     static                          
+                   _false   0x002444    program     static                          
+       ___return_lbl00000   0x002448    program     static                          
+                 WriteSPI   0x00244a    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_writ.c
+                  ReadSPI   0x002486    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\SPI\spi_read.c
+                  isdigit   0x0024b4    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
+                   jMatch   0x0024d4    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
+                 jNoMatch   0x0024d6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\isdigit.asm
+            __zero_memory   0x0024d8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                   loop_h   0x0024e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+               zero_block   0x0024e6    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                compare_l   0x0024ee    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                   loop_l   0x0024f0    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\proc\p18F4480.asm
+                 _startup   0x0024f8    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\startup\c018i.c
+                     loop   0x002508    program     static                          
+       ___return_lbl00001   0x002512    program     static                          
+              _usart_putc   0x002514    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
+                     loop   0x002524    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\pmc_common\USART\_usartpc.asm
+             Delay100TCYx   0x002530    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0008   0x002538    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+                    D100x   0x00253c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+                   D100_1   0x00253e    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0012   0x002542    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0018   0x002548    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d100tcyx.asm
+              Delay10TCYx   0x00254c    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+                     D10x   0x002554    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000A   0x002556    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000C   0x002558    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000E   0x00255a    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+                    D10_1   0x00255c    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\delays\d10tcyx.asm
+                 s_digits   0x002562    program     static C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\vfprintf.c
+               _user_putc   0x002574    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\_user_putc.c
+                   __init   0x002576    program     extern C:\Program Files\Microchip\mplabc18\v3.37\src\traditional\stdclib\__init.c
                __config_0   0x300001    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
                __config_1   0x300002    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
                __config_2   0x300003    program     static C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c
