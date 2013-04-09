@@ -23,7 +23,8 @@
 //#include "ECANPoll.h"
 
 typedef struct tagstCanFrame{
-	unsigned char id[2];
+//	unsigned char id[2];
+	unsigned short id;
 	unsigned char control;
 	unsigned char length;
 	unsigned char rtr;
@@ -111,25 +112,36 @@ void main()
 //		inputFiltersOff();
 //      mcp2515_loopBack();
 
+
 /*
 		while(1)
 		{
+			unsigned char counter = 0, temp;
 			stCanFrame  result;
 			char wast = mcp2515_get_message(&result);
 			printf("\rget_message done\n");
+			printf("\The ID in hex is %x\n",result.id);
+			printf("\rThe length is %i\n",result.length);
+			counter = 0;
+			while(counter < result.length)
+			{
+				temp = (result.data[counter]);
+				printf("\r  The data at %i  is  %x  \n",counter,temp);
+				counter++;	
+			}
 			Delay10TCYx(0x30);
 
 		}
+
 */
-	
 		//send a test message
 	
 		while(1)
 		{	
 			stCanFrame sample;
-		
-			sample.id[0] = 0b11111111;
-			sample.id[1] = 0b01010101;
+			sample.id = 0x42;		
+//			sample.id[0] = 0b11111111;
+//			sample.id[1] = 0b01010101;
 			
 			sample.data[0] = 0x40;
 			sample.data[1] = 0xAA;
@@ -145,7 +157,7 @@ void main()
 			Delay10TCYx(0x30);
 		}
 
-
+	
 	}
  }
  
@@ -568,7 +580,8 @@ char mcp2515_get_message(stCanFrame *inMessage)
 	// read status
 	unsigned char status = mcp2515_read_status(SPI_MCP_RX_STATUS);
 	unsigned char addr;
-	unsigned char id,wast,length, counter;
+	unsigned char wast,length, counter;
+	unsigned short id;
 	//unsigned char d,e,f,g,h,i;
 	unsigned char data[20];
 	
@@ -596,22 +609,26 @@ char mcp2515_get_message(stCanFrame *inMessage)
 
 	chip_active();
 	putcSPI(addr);
+	id =0;
 	id = ReadSPI() <<3;
 	id |= ReadSPI() >>5;
-
+	inMessage.id = id;
 	
 	wast = ReadSPI() ;
 	wast = ReadSPI() ;
 	length = ReadSPI() ;
+	inMessage.length = length;
 	counter = 0;
 	while( counter < length)
 	{
-		data[counter] = ReadSPI();
+		inMessage.data[counter] = data[counter] = ReadSPI();
 		counter = counter +1;
 	}
 
 	chip_enactive();
 
+/*
+// Debug printing
 	printf("\r The Id is  %x \n",id);
 	printf("\r The message has %i bytes of data \n",length);
 	counter = 0;
@@ -621,7 +638,7 @@ char mcp2515_get_message(stCanFrame *inMessage)
 	
 		counter = counter +1;
 	}
-	
+*/
 
 	if( bit_is_set(status,6))
 	{
@@ -645,7 +662,7 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 
 
 	unsigned char length;
-	unsigned char t = 0;
+	unsigned char t = 0, topID,bottomID,*split;
 	if ((reg != 0) && (reg != 1) && (reg != 2))
 	{
 			printf("\r Register slection not Valid -Load message failed \n");
@@ -657,16 +674,26 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 	else printf("\rsomething has gone wrong in the register selection part acpect of RX /n");
 	
 //	dispError();
-
+	split = ((unsigned char *) &((*message).id));
+	topID =(split[0] << 5);
+	bottomID = ((split[0] >> 3) |(split[1] << 5));
 	
+	printf("\rtesting id %x, and %b\n",(*message).id );
+	
+
 	chip_active();
 	putcSPI(SPI_MCP_WRITE_TX | reg);
 	
-	putcSPI((*message).id[0]  >> 3);
-    putcSPI((*message).id[1]  << 5);
+//	putcSPI((*message).id[0]  >> 3);
+//  putcSPI((*message).id[1]  << 5);
+	 putcSPI(bottomID);  //page 19 reg 3-3 //The 8 bits of the reg are the bits 2 to 11 of the id
+     putcSPI(topID);   //page 20 reg 3-4 //The last 3 bits of reg  are the 0 to 1 bits of the id
 	
-	putcSPI(0);
-	putcSPI(0);
+    
+   
+
+	
+
 	
 	length = (*message).length & 0x0f;
 	
