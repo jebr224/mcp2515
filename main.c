@@ -43,6 +43,7 @@ typedef struct tagstCanFrame{
 char mcp2515_read_status(char type);
  void mcp_write_adress(unsigned char adress , unsigned char value);
  void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char data);
+
  
  void mcp2515_normal();
  void mcp2515_sleep();
@@ -57,9 +58,11 @@ char mcp2515_read_status(char type);
  int  mcp_init(unsigned char speed);
  char mcp2515_get_message( stCanFrame * inMessage);
  unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg);
+unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg);
  
 void debugReg(void);
 void dispError();
+void delay(void);
 
  //global  temp
  char can_speed = 0x07;
@@ -135,7 +138,7 @@ void main()
 
 */
 		//send a test message
-	
+/*	
 		while(1)
 		{	
 			stCanFrame sample;
@@ -143,24 +146,65 @@ void main()
 //			sample.id[0] = 0b11111111;
 //			sample.id[1] = 0b01010101;
 			
+//			sample.id = 0b0000001110001000;
+			sample.length = 4;
 			sample.data[0] = 0x40;
 			sample.data[1] = 0xAA;
 			sample.data[2] = 0x60;
 			sample.data[3] = 0x70;
 			
-			sample.length = 4;
-			
+
 			sample.rtr = 0x00;
 		
 			mcp2515_send_message(&sample, 0x02);
 			
 			Delay10TCYx(0x30);
 		}
+*/
+		while(1)
+		{	
+			stCanFrame sample;
+			stCanFrame result;
+			char wast;
+			unsigned char counter = 0, temp;
+//		sample.id = 0x42;		
+//			sample.id[0] = 0b11111111;
+//			sample.id[1] = 0b01010101;
+			
+			sample.id = 0x711;
+			sample.length = 0;
+			sample.data[0] = 0x40;
+			sample.data[1] = 0xAA;
+			sample.data[2] = 0x60;
+			sample.data[3] = 0x70;
+			
+			sample.rtr =0 ;//=0xff;// 0x00;
+		
+			mcp2515_send_message(&sample, 0x02);
 
+			
+
+			Delay10TCYx(0x30);
+		
+			 if(mcp2515_get_message(&result))
+			{
+				printf("\rThe address is %x \n",result.id);
+				while(counter < result.length)
+				{
+					temp = (result.data[counter]);
+					printf("\r  The data at %i  is  %x  \n",counter,temp);
+					counter++;	
+				}
+			 	delay();
+			}
+		}
 	
-	}
- }
- 
+
+		
+
+	}	
+}	
+
 
  
  //bit_is_set
@@ -219,7 +263,7 @@ unsigned char mcp_read_register(unsigned char adress)
     data = ReadSPI();
 	
     chip_enactive();
-    
+
 	return data;
   
   } 
@@ -259,6 +303,8 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 	
 	chip_enactive();
 
+	return;
+
 }
 
 //mcp_normal
@@ -270,11 +316,10 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
  void mcp2515_normal()
  {
 	char value;
-	//chip_active();
-	mcp_write_adress(CANCTRL,  0);
-	//mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 0 );
-	
-	//chip_enactive();
+
+	//	mcp_write_adress(CANCTRL,  0);
+	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 0 );
+
 	
 	value = mcp_read_register(CANCTRL);
 
@@ -296,19 +341,14 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //The SPI of for the chip will still be active, 
 //but can aspect of the chip will not be active.
 //TX remains in the recessive state in sleep mode
-//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry)
+//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
 //NORMAL MODES 350 to 280 mA
 
  void mcp2515_sleep()
  {
 	char value;
-    //chip_active();
-	//mcp_write_adress(CANCTRL,  0b00100000 );
-	//mcp_write_adress(CANCTRL,  1 << REQOP0 );
 	mcp2515_bit_modify(CANCTRL, (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 1 << REQOP0);
-	
-	//chip_enactive();
-	
+
 	value = mcp_read_register(CANCTRL);
 	
 	
@@ -352,16 +392,14 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //This function puts the 2515 into a listen ONLY mode
 //When in listen only mode the chip is unable to send any message of the bus,
 //And no warrings will be given.
-//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry)
+//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
  
  void mcp2515_listen()
  {
 	char value;
-	//chip_active();
-	//mcp_write_adress(CANCTRL, ((1 << REQOP0) | (1 << REQOP1))  );
 	
 	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), ((1 << REQOP0) | (1 << REQOP1)) );
-	//chip_enactive();
+
 	
 	value = mcp_read_register(CANCTRL);
 
@@ -384,7 +422,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //-----------------
 //loop back is used for debugging CAN applications
 //This mode allows to load the messages that you send
-//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry)
+//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
  
  void mcp2515_loopBack()
  {
@@ -415,7 +453,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //This function lets special registers to be configured 
 //The CNF1, CNF2, CNF3, TXRTSCTRL, filter and mask, and only be set while in config mode
 //The init function configs the chip. IF you call init DO NOT CALL CONFIG
-//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry)
+//NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
  
  void mcp2515_config()
  {
@@ -456,7 +494,6 @@ int mcp_init(unsigned char speed)
 {
     unsigned char data ;
 	unsigned char timingReg[4];
-	//speed = 0X07; //change this later
     TRISA = 0x0F;
     
     // 16 Mhz crystal at a speed of 125k works a treat
@@ -468,12 +505,13 @@ int mcp_init(unsigned char speed)
 	*/
 
 	// 20 Mhz crystal at a speed of 125k works very well
-	
+		
 	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
 	timingReg[1] = (( 1 << SJW0)|(1<<BRP2));					  //Value for CNF1
 	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)  | (1<<PHSEG12) | (1<<PHSEG11) | (1<<PHSEG0) ); //Value for CNF2
 	timingReg[3] = ( (1<<PHSEG20) |(1<<PHSEG22)); //Value for CNF3 
 	
+
 	
 	// 20 Mhz crystal at a speed of 1 Mbit (it looks like it would work, but the transiver is not fast enough
  	/*
@@ -482,7 +520,20 @@ int mcp_init(unsigned char speed)
 	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)   | (1<<PHSEG1) | (1<<PHSEG0) ); //Value for CNF2
 	timingReg[3] =  (1<<PHSEG22); //Value for CNF3 
 	*/
- 
+	// 20 Mhz crystal at a speed of 100 k 
+	/*
+	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
+	timingReg[1] = (1 << BRP2);					  //Value for CNF1
+	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)   | (1<<PHSEG10) | (1<<PHSEG11) | (1<<PHSEG12) | (1<<PHSEG0) | (1<<PHSEG1) ); //Value for CNF2
+	timingReg[3] =  (1<<PHSEG20) | (1<<PHSEG21) | (1<<PHSEG22) ; //Value for CNF3 
+	*/
+ 	// 125 MPPT Stupid
+	/*
+	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
+	timingReg[1] = 0b00000100;				  //Value for CNF1
+	timingReg[2] = 0b10001110;
+	timingReg[3] = 0b00000101; //Value for CNF3 
+	*/
 
 //Value for CANINTE	
     chip_active();
@@ -498,12 +549,6 @@ int mcp_init(unsigned char speed)
 	putcSPI(SPI_MCP_WRITE);
 	putcSPI(CNF3);          				//page 43 //start writing at CNF3
 	
-	/*
-	putcSPI((1<<PHSEG21)); 					// Value to be stored at CNF3 Bitrate 125 kbps at 16 MHz
-	putcSPI((1<<BTLMODE) | (1<<PHSEG11)); 	//Value for CNF2
-	putcSPI(speed);                    		 //Value for CNF1
-	putcSPI((1<<RX1IE)|(1<<RX0IE));    		 //Value for CNF0
-	*/
 	putcSPI(timingReg[3]); 					//Value to be stored at CNF3 Bitrate 125 kbps at 16 MHz
 	putcSPI(timingReg[2]); 	                //Value for CNF2
 	putcSPI(timingReg[1]);                  //Value for CNF1
@@ -539,22 +584,24 @@ int mcp_init(unsigned char speed)
 		printf("\r SomeThing fuked up \n");
 		return -1;
 	}
-	
-	
-	
-	
-	
-	
+	else
+	{
+			printf("\rInit Timing is set \n");
+	}
 	return 0;
   }
 
   
   
+//mcp2515_read_status
+//--------------------
+// This function returns the value of a given status register.
+//Not all regesters are status register. If you would like to read a normal 
+//register call the function [ unsigned char mcp_read_register(unsigned char adress) ]
 char mcp2515_read_status(char type)
 {
 	char data;
 	chip_active(); 
-//	putcSPI(0x03); //? new
 	putcSPI(type);
 	data = ReadSPI();
 	
@@ -562,7 +609,11 @@ char mcp2515_read_status(char type)
 	return data;
 }
 
-  
+
+//inputFiltersOff() 
+//-------------------
+//The messages that are loaded into buffers will be any messages on 
+//the bus, if this function is called
 void inputFiltersOff()
 {
 	mcp2515_config();
@@ -570,8 +621,7 @@ void inputFiltersOff()
 	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  )); 
 	mcp2515_normal();
 
-	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0)| (1<<RXRTR) ));
-	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0)| (1<<RXRTR) )); 
+	return;
 } 
 
 
@@ -610,8 +660,8 @@ char mcp2515_get_message(stCanFrame *inMessage)
 	chip_active();
 	putcSPI(addr);
 	id =0;
-	id = ReadSPI() <<3;
-	id |= ReadSPI() >>5;
+	id = ((	unsigned short) ReadSPI()) <<3;
+	id |= ((	unsigned  short) ReadSPI()) >>5;
 	inMessage.id = id;
 	
 	wast = ReadSPI() ;
@@ -678,7 +728,7 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 	topID =(split[0] << 5);
 	bottomID = ((split[0] >> 3) |(split[1] << 5));
 	
-	printf("\rtesting id %x, and %b\n",(*message).id );
+	printf("\rtesting id %x, and %b message length %i\n",(*message).id ,(*message).id, (*message).length) ;
 	
 
 	chip_active();
@@ -690,7 +740,8 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
      putcSPI(topID);   //page 20 reg 3-4 //The last 3 bits of reg  are the 0 to 1 bits of the id
 	
     
-   
+  	 putcSPI(0);  //page 19 reg 3-3 //The 8 bits of the reg are the bits 2 to 11 of the id
+     putcSPI(0);
 
 	
 
@@ -728,6 +779,85 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 	
 	return 1;
 }
+
+
+
+
+
+
+
+unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg)
+{
+
+
+
+	unsigned char length;
+	unsigned char t = 0, topID,bottomID,*split;
+	if ((reg != 0) && (reg != 1) && (reg != 2))
+	{
+			printf("\r Register slection not Valid -Load message failed \n");
+			return -1;
+	} 
+	else if (reg == 2)  reg = 0x04;
+	else if (reg == 1)  reg = 0x02;
+	else if (reg == 0)  reg = 0x00;
+	else printf("\rsomething has gone wrong in the register selection part acpect of RX /n");
+	
+//	dispError();
+	split = ((unsigned char *) &((*message).id));
+	topID =(split[0] << 5);
+	bottomID = ((split[0] >> 3) |(split[1] << 5));
+	
+	printf("\rtesting id %x, and %b message length %i\n",(*message).id ,(*message).id, (*message).length) ;
+	
+
+	chip_active();
+	putcSPI(SPI_MCP_WRITE_TX | reg);
+	
+//	putcSPI((*message).id[0]  >> 3);
+//  putcSPI((*message).id[1]  << 5);
+	 putcSPI(bottomID);  //page 19 reg 3-3 //The 8 bits of the reg are the bits 2 to 11 of the id
+     putcSPI(topID | (1 << EXIDE));   //page 20 reg 3-4 //The last 3 bits of reg  are the 0 to 1 bits of the id
+	   
+  	 putcSPI(0);  //page 19 reg 3-3 //The 8 bits of the reg are the bits 2 to 11 of the id
+     putcSPI(0);
+	
+	length = (*message).length & 0x0f;
+	
+	if ((*message).rtr) {
+		// a rtr-frame has a length, but contains no data
+		putcSPI((1<<RTR) | length);
+		printf("\rrtr != 0\n");
+	}
+	else {
+		// set message length
+		putcSPI(length);
+		printf("\rrtr == 0\n");
+		// data
+		printf("\r writting data \n");
+		for (t=0;t<length;t++) {
+			printf("[%x]",(*message).data[t]);
+			putcSPI((*message).data[t]);
+		}
+		printf("\n");
+	}
+	chip_enactive();
+	
+	Delay10TCYx(0x30);
+
+	// send message
+	chip_active();
+
+	reg = (reg == 0) ? 1 : reg; 
+	putcSPI(SPI_MCP_RTS | reg);
+
+	chip_enactive();
+	
+	return 1;
+}
+
+
+
  
 void dispError()
 {
@@ -741,3 +871,18 @@ void dispError()
 	return; 
 }
 
+void delay(void)
+{
+	unsigned char t =0;
+	unsigned char b = 0;
+	while(t < 254)
+	{
+
+	while(b < 254)
+		{
+			b++;
+		}
+	b = 0;
+	t++;
+	}
+}
