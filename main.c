@@ -20,6 +20,7 @@
 #include <delays.h>
 #include <spi.h>
 #include "mcp2515_defs_JB.h"
+#include "mpptDriveTek.c"
 //#include "ECANPoll.h"
 
 typedef struct tagstCanFrame{
@@ -36,32 +37,32 @@ typedef struct tagstCanFrame{
 
  char bit_is_set( unsigned char memory, unsigned char bit);
  
- void chip_active(void);
- void chip_enactive(void);
+ void chip_active(unsigned char device);
+ void chip_enactive(unsigned char device);
  
- unsigned char  mcp_read_register(unsigned char adress);
-char mcp2515_read_status(char type);
- void mcp_write_adress(unsigned char adress , unsigned char value);
- void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char data);
+ unsigned char  mcp_read_register(unsigned char adress,unsigned char device);
+char mcp2515_read_status(char type,unsigned char device);
+ void mcp_write_adress(unsigned char adress , unsigned char value,unsigned char device);
+ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char data,unsigned char device);
 
  
- void mcp2515_normal();
- void mcp2515_sleep();
- void mcp2515_wakeUp();
- void mcp2515_listen(); 
- void mcp2515_loopBack();
- void mcp2515_config();
- void mcp2515_oneShot();
+ void mcp2515_normal(unsigned char device);
+ void mcp2515_sleep(unsigned char device);
+ void mcp2515_wakeUp(unsigned char device);
+ void mcp2515_listen(unsigned char device); 
+ void mcp2515_loopBack(unsigned char device);
+ void mcp2515_config(unsigned char device);
+ void mcp2515_oneShot(unsigned char device);
 
- void inputFiltersOff();
+ void inputFiltersOff(unsigned char device);
  
- int  mcp_init(unsigned char speed);
- char mcp2515_get_message( stCanFrame * inMessage);
- unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg);
-unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg);
+ int  mcp_init(unsigned char speed,unsigned char device);
+ char mcp2515_get_message( stCanFrame * inMessage,unsigned char device);
+ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg,unsigned char device);
+unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg,unsigned char device);
  
 void debugReg(void);
-void dispError();
+void dispError(unsigned char device);
 void delay(void);
 
  //global  temp
@@ -94,12 +95,13 @@ void main()
 		int test;
 		unsigned char del;
 		stCanFrame sample;
+        unsigned char myDevice = 0x00;
 	
-		test = mcp_init( 0x07);
+		test = mcp_init( 0x07,myDevice);
 		while ( test != 0)
 		{
 			printf("\rFailer to init MCP 2515, reseting \n");
-			test = mcp_init(can_speed);
+			test = mcp_init(can_speed,myDevice);
 		}
 		printf("\r SPI for MCP_2515 is open \n");
 	
@@ -111,7 +113,7 @@ void main()
 		
 		
 	//	mcp2515_oneShot();
-		mcp2515_normal();
+		mcp2515_normal(myDevice);
 //		inputFiltersOff();
 //      mcp2515_loopBack();
 
@@ -180,21 +182,23 @@ void main()
 			
 			sample.rtr =0 ;//=0xff;// 0x00;
 		
-			mcp2515_send_message(&sample, 0x02);
+			mcp2515_send_message(&sample, 0x02,myDevice);
 
 			
 
 			Delay10TCYx(0x30);
 		
-			 if(mcp2515_get_message(&result))
+			 if(mcp2515_get_message(&result ,myDevice))
 			{
+			
 				printf("\rThe address is %x \n",result.id);
 				while(counter < result.length)
 				{
 					temp = (result.data[counter]);
-					printf("\r  The data at %i  is  %x  \n",counter,temp);
+					printf("\r  The data att %i  is  %x  \n",counter,temp);
 					counter++;	
 				}
+				parsMppt(result.data);
 			 	delay();
 			}
 		}
@@ -228,10 +232,36 @@ void main()
  //The opposite of the function is the chip_enactive. 
  //For every call to chip active there should be a call to chip enactive
  
- void chip_active(void)
+ void chip_active( unsigned char deviceNumber)
  {
-    PORTAbits.RA4 = 0;  //Pin 4 is the CS pin, setting it low activates spi the chip
-	Delay10TCYx(0x01);  
+     //used for breadboard JB
+    //PORTAbits.RA4 = 0;  //Pin 4 is the CS pin, setting it low activates spi the chip
+    
+   // PORTDbits.RD0 = 0;
+  //  PORTDbits.RD1 = 0;
+   // PORTDbits.RD2 = 0;
+	//Delay10TCYx(0x01); 
+
+   if (deviceNumber == 0x00)
+   {
+      PORTDbits.RD0 = 0;
+   }
+   else if ( deviceNumber == 0x01)
+   {
+       PORTDbits.RD1 = 0;
+   }
+   else if(deviceNumber == 0x02)
+   { 
+        PORTDbits.RD2 = 0;
+   } 
+   else 
+   {
+      printf("\n\rinvalide SPI device to activate (what the fuck are you doing?)");
+   }
+
+	Delay10TCYx(0x01);  // setting pin 4 low deactivates the spi for the chip
+
+ 
  }
  
  
@@ -241,9 +271,27 @@ void main()
  //The fourth pin on bus A is used as the CS pin
  // //The opposite of the function is the chip_enactive.
  
- void chip_enactive(void)
+ void chip_enactive( unsigned char deviceNumber)
  {
-	PORTAbits.RA4 = 1;
+//used on breadboard JB
+//	PORTAbits.RA4 = 1;
+   if (deviceNumber == 0x00)
+   {
+      PORTDbits.RD0 = 1;
+   }
+   else if ( deviceNumber == 0x01)
+   {
+       PORTDbits.RD1 = 1;
+   }
+   else if(deviceNumber == 0x02)
+   { 
+        PORTDbits.RD2 = 1;
+   } 
+   else 
+   {
+      printf("\n\rinvalide SPI device to activate (what the fuck are you doing?)");
+   }
+
 	Delay10TCYx(0x01);  // setting pin 4 low deactivates the spi for the chip
 	
  }
@@ -253,16 +301,16 @@ void main()
  //This function sends the SPI command for to read a register
  //The parameter passed in is the adress thats value will be returned.
  
-unsigned char mcp_read_register(unsigned char adress)
+unsigned char mcp_read_register(unsigned char adress,unsigned char device)
   {
     unsigned char data;
-    chip_active();
+    chip_active(device);
 	
     putcSPI(SPI_MCP_READ);
     putcSPI(adress);
     data = ReadSPI();
 	
-    chip_enactive();
+    chip_enactive(device);
 
 	return data;
   
@@ -275,33 +323,33 @@ unsigned char mcp_read_register(unsigned char adress)
  //If your lucky they will be in the def file
  //NOTE: The SPI_MCP_WRITE command allows sequential registers to be written in then same communtication block
  
-void  mcp_write_adress(unsigned char adress , unsigned char value)
+void  mcp_write_adress(unsigned char adress , unsigned char value, unsigned char device)
  {
-	chip_active();
+	chip_active(device);
   
 	putcSPI(SPI_MCP_WRITE);
 	putcSPI(adress);
 	putcSPI(value);
   
-	chip_enactive();
+	chip_enactive(device);
 	
 	return;
  }
   
   //page 64
   
-void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char data)
+void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char data, unsigned char device)
 {
 
 	//printf("\r bit modify \n %b \n %b \n %b \n",adress, mask, data );
-    chip_active();
+    chip_active(device);
 	
 	putcSPI(SPI_MCP_BIT_MODIFY);
 	putcSPI(adress);
 	putcSPI(mask);
 	putcSPI(data);
 	
-	chip_enactive();
+	chip_enactive(device);
 
 	return;
 
@@ -313,15 +361,15 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //This can also be done by running the init command
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry)
  
- void mcp2515_normal()
+ void mcp2515_normal(unsigned char device)
  {
 	char value;
 
 	//	mcp_write_adress(CANCTRL,  0);
-	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 0 );
+	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 0 , device);
 
 	
-	value = mcp_read_register(CANCTRL);
+	value = mcp_read_register(CANCTRL,device);
 
 	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != 0x00)
 	{
@@ -344,12 +392,12 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
 //NORMAL MODES 350 to 280 mA
 
- void mcp2515_sleep()
+ void mcp2515_sleep(unsigned char device)
  {
 	char value;
-	mcp2515_bit_modify(CANCTRL, (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 1 << REQOP0);
+	mcp2515_bit_modify(CANCTRL, (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), 1 << REQOP0, device);
 
-	value = mcp_read_register(CANCTRL);
+	value = mcp_read_register(CANCTRL,device);
 	
 	
 	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != (1 << REQOP0 ))
@@ -366,16 +414,16 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
  //mcp2515_wakeUp()
  //---------------
  
- void mcp2515_wakeUp()
+ void mcp2515_wakeUp(unsigned char device)
  {
 	unsigned char value;
 
 	
-	mcp2515_bit_modify(CANINTE, 1 << WAKIE , 1 << WAKIE);
+	mcp2515_bit_modify(CANINTE, 1 << WAKIE , 1 << WAKIE, device);
 	//mcp2515_normal();
 	Delay10TCYx(0x30);	
 	
-	value = mcp_read_register(CANINTE);
+	value = mcp_read_register(CANINTE,device);
 	if (value & (1 << WAKIE))
 		printf("\r status was set to Awake mode \n");	
 	else 
@@ -394,17 +442,17 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //And no warrings will be given.
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
  
- void mcp2515_listen()
+ void mcp2515_listen(unsigned char device)
  {
 	char value;
 	
-	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), ((1 << REQOP0) | (1 << REQOP1)) );
+	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2), ((1 << REQOP0) | (1 << REQOP1)), device);
 
 	
-	value = mcp_read_register(CANCTRL);
+	value = mcp_read_register(CANCTRL,device);
 
 	
-	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2))  != ( (1 << REQOP0) | (1 << REQOP1))  )
+	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2))  != ( (1 << REQOP0) | (1 << REQOP1)),device )
 	{
 		printf("\r Error in setting to listen mode   CANSTAT = %b \n", value);
 		return;
@@ -424,17 +472,17 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //This mode allows to load the messages that you send
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
  
- void mcp2515_loopBack()
+ void mcp2515_loopBack(unsigned char device)
  {
 	char value;
 	//chip_active();
 	//mcp_write_adress(CANCTRL, ( 1<< REQOP1));
     //chip_enactive();
-	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2),  (1 << REQOP1)) ;
+	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2),  (1 << REQOP1), device) ;
 	
-	value = mcp_read_register(CANCTRL);
+	value = mcp_read_register(CANCTRL, device);
 	
-	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != ( 1<< REQOP1) ) 
+	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != ( 1<< REQOP1), device ) 
 	{
 		printf("\r Error in setting to loopBack mode  CANSTAT = %b \n", value);
 		return;
@@ -455,7 +503,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //The init function configs the chip. IF you call init DO NOT CALL CONFIG
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
  
- void mcp2515_config()
+ void mcp2515_config(unsigned char device)
  {
 	char value;
 	char pendingOp;
@@ -464,10 +512,10 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 	//chip_enactive(); 
 	
 
-	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2),  (1 << REQOP2)) ;
+	mcp2515_bit_modify(CANCTRL,  (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2),  (1 << REQOP2), device) ;
    
 
-	value = mcp_read_register(CANCTRL);
+	value = mcp_read_register(CANCTRL,device);
 		
 	if ((value  & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != (1 << REQOP2) )
 	{
@@ -477,25 +525,31 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 		printf("\r status was set to config mode \n");
 	}
  
-	pendingOp = mcp_read_register(CANSTAT);
+    //this looks stupid
+	pendingOp = mcp_read_register(CANSTAT, device);
 	while(pendingOp &( (1<<OPMOD0) | (1<<OPMOD1) | (1<<OPMOD2) ) != (1<<OPMOD2))
 		printf("\r waiting \n");
 }
 
-void mcp2515_oneShot()		//FIX THIS LATER //One shot mode changes the CANCTRL reg 
+void mcp2515_oneShot(unsigned char device)		//FIX THIS LATER //One shot mode changes the CANCTRL reg 
 {
-	chip_active();
-	mcp_write_adress( CANCTRL, ( 1 << OSM));
-	chip_enactive();
+	chip_active(device);
+	mcp_write_adress( CANCTRL, ( 1 << OSM), device);
+	chip_enactive(device);
 
 }
   
-int mcp_init(unsigned char speed)
+int mcp_init(unsigned char speed, unsigned char device)
 {
     unsigned char data ;
 	unsigned char timingReg[4];
-    TRISA = 0x0F;
-    
+ 
+    //CMCON = 0xFF; //shutdown the comparitor modual, lets us use port D as gpio, jimmy figured this out
+    //CMCON = 0b00000111;
+    //ECCP1AS = 0b00000010;
+    //CCP1CON = 0b00000000;
+    //TRISA = 0x0F;
+    TRISD = 0b11111000; //temp
     // 16 Mhz crystal at a speed of 125k works a treat
     /*
 	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
@@ -536,16 +590,16 @@ int mcp_init(unsigned char speed)
 	*/
 
 //Value for CANINTE	
-    chip_active();
+    chip_active(device);
 	
     Delay10TCYx(0x1);	
     putcSPI(SPI_MCP_RESET);					//when the chip return from reset, it will be in config mode
 	
-	chip_enactive();
+	chip_enactive(device);
 	
 	Delay10TCYx(0x30);	 					//delay 3000 cyles for the chip to reset, experimental number
 	
-	chip_active();
+	chip_active(device);
 	putcSPI(SPI_MCP_WRITE);
 	putcSPI(CNF3);          				//page 43 //start writing at CNF3
 	
@@ -554,25 +608,25 @@ int mcp_init(unsigned char speed)
 	putcSPI(timingReg[1]);                  //Value for CNF1
 	putcSPI(timingReg[0]);    		        //Value for CANINTE	
     
-	chip_enactive();
+	chip_enactive(device);
 
 	//High impedance on the RXnBF pin
-	mcp_write_adress(BFPCTRL, 0);   
+	mcp_write_adress(BFPCTRL, 0,device);   
 	
 	//Set TXnRTS to use as possible inputs
-	mcp_write_adress(TXRTSCTRL, 0); 
+	mcp_write_adress(TXRTSCTRL, 0,device); 
 	
 	// turn off filters => receive any message
 	// Both RX buffers have filters disabled
 	//page 27 //  RXM1 = 6  RXM0 = 5  
 	// (1 << 6) || ( 1 << 5) = b01100000 = 0x60
-	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0)));// | (1<<RXRTR) | (1<<BUKT)));
-	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0)));// | (1<<RXRTR) | (1<<BUKT))); 
+	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0)),device);// | (1<<RXRTR) | (1<<BUKT)));
+	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0)),device);// | (1<<RXRTR) | (1<<BUKT))); 
 	
 	
-	mcp_write_adress(CANCTRL, 0); //set the chip to normal mode 
+	mcp_write_adress(CANCTRL, 0,device); //set the chip to normal mode 
 	
-	data = mcp_read_register(CNF1);
+	data = mcp_read_register(CNF1,device);
 	
 
 	  
@@ -598,14 +652,14 @@ int mcp_init(unsigned char speed)
 // This function returns the value of a given status register.
 //Not all regesters are status register. If you would like to read a normal 
 //register call the function [ unsigned char mcp_read_register(unsigned char adress) ]
-char mcp2515_read_status(char type)
+char mcp2515_read_status(char type,unsigned char device)
 {
 	char data;
-	chip_active(); 
+	chip_active(device); 
 	putcSPI(type);
 	data = ReadSPI();
 	
-	chip_enactive();
+	chip_enactive(device);
 	return data;
 }
 
@@ -614,28 +668,28 @@ char mcp2515_read_status(char type)
 //-------------------
 //The messages that are loaded into buffers will be any messages on 
 //the bus, if this function is called
-void inputFiltersOff()
+void inputFiltersOff(unsigned char device)
 {
-	mcp2515_config();
-	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  ));
-	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  )); 
-	mcp2515_normal();
+	mcp2515_config(device);
+	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  ),device);
+	mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR)  ), device); 
+	mcp2515_normal(device);
 
 	return;
 } 
 
 
-char mcp2515_get_message(stCanFrame *inMessage)
+char mcp2515_get_message(stCanFrame *inMessage, unsigned char device)
 {
 	// read status
-	unsigned char status = mcp2515_read_status(SPI_MCP_RX_STATUS);
+	unsigned char status = mcp2515_read_status(SPI_MCP_RX_STATUS , device);
 	unsigned char addr;
 	unsigned char wast,length, counter;
 	unsigned short id;
 	//unsigned char d,e,f,g,h,i;
 	unsigned char data[20];
 	
-	dispError();
+	dispError(device);
 	printf("\r RX_status -> %b \n",status);
 
 
@@ -657,7 +711,7 @@ char mcp2515_get_message(stCanFrame *inMessage)
 		return 0;
 	}
 
-	chip_active();
+	chip_active(device);
 	putcSPI(addr);
 	id =0;
 	id = ((	unsigned short) ReadSPI()) <<3;
@@ -675,7 +729,7 @@ char mcp2515_get_message(stCanFrame *inMessage)
 		counter = counter +1;
 	}
 
-	chip_enactive();
+	chip_enactive(device);
 
 /*
 // Debug printing
@@ -692,12 +746,12 @@ char mcp2515_get_message(stCanFrame *inMessage)
 
 	if( bit_is_set(status,6))
 	{
-		 mcp2515_bit_modify(CANINTF, (1<<RX0IF),0);
+		 mcp2515_bit_modify(CANINTF, (1<<RX0IF),0, device);
 		printf("\r mod1 \n");
 	}
 	else
 	{
-		 mcp2515_bit_modify(CANINTF, (1<<RX1IF),0);
+		 mcp2515_bit_modify(CANINTF, (1<<RX1IF),0,device);
 			printf("\r mod 2\n");
 	}
 	return addr;
@@ -706,10 +760,8 @@ char mcp2515_get_message(stCanFrame *inMessage)
 
 
 
-unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
+unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg, unsigned char device)
 {
-
-
 
 	unsigned char length;
 	unsigned char t = 0, topID,bottomID,*split;
@@ -731,7 +783,7 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 	printf("\rtesting id %x, and %b message length %i\n",(*message).id ,(*message).id, (*message).length) ;
 	
 
-	chip_active();
+	chip_active(device);
 	putcSPI(SPI_MCP_WRITE_TX | reg);
 	
 //	putcSPI((*message).id[0]  >> 3);
@@ -765,17 +817,17 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 		}
 		printf("\n");
 	}
-	chip_enactive();
+	chip_enactive(device);
 	
 	Delay10TCYx(0x30);
 
 	// send message
-	chip_active();
+	chip_active(device);
 
 	reg = (reg == 0) ? 1 : reg; 
 	putcSPI(SPI_MCP_RTS | reg);
 
-	chip_enactive();
+	chip_enactive(device);
 	
 	return 1;
 }
@@ -786,7 +838,7 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg)
 
 
 
-unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg)
+unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg, unsigned char device)
 {
 
 
@@ -811,7 +863,7 @@ unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg)
 	printf("\rtesting id %x, and %b message length %i\n",(*message).id ,(*message).id, (*message).length) ;
 	
 
-	chip_active();
+	chip_active(device);
 	putcSPI(SPI_MCP_WRITE_TX | reg);
 	
 //	putcSPI((*message).id[0]  >> 3);
@@ -841,17 +893,17 @@ unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg)
 		}
 		printf("\n");
 	}
-	chip_enactive();
+	chip_enactive(device);
 	
 	Delay10TCYx(0x30);
 
 	// send message
-	chip_active();
+	chip_active(device);
 
 	reg = (reg == 0) ? 1 : reg; 
 	putcSPI(SPI_MCP_RTS | reg);
 
-	chip_enactive();
+	chip_enactive(device);
 	
 	return 1;
 }
@@ -859,11 +911,11 @@ unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg)
 
 
  
-void dispError()
+void dispError(unsigned char device)
 {
-	unsigned char rec_error = mcp_read_register(REC);
-	unsigned char tec_error = mcp_read_register(TEC);
-	unsigned char error_flags =mcp_read_register(EFLG);
+	unsigned char rec_error = mcp_read_register(REC,device);
+	unsigned char tec_error = mcp_read_register(TEC,device);
+	unsigned char error_flags =mcp_read_register(EFLG,device);
 
 	
 	printf("\r the rec_error is %i and the tec error is %i  \n",rec_error, tec_error);
