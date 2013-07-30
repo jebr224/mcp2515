@@ -1,2 +1,3 @@
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mpptDriveTek.c 24 : call of function without prototype
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mpptDriveTek.c 31 : call of function without prototype
+Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mpptDriveTek.c 11 : type qualifier mismatch in assignment
+Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mpptDriveTek.c 25 : type qualifier mismatch in assignment
+Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mpptDriveTek.c 26 : type qualifier mismatch in assignment
