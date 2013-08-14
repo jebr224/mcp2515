@@ -36,18 +36,21 @@
   //  PORTDbits.RD1 = 0;
    // PORTDbits.RD2 = 0;
 	//Delay10TCYx(0x01); 
-
+ 
    if (deviceNumber == 0x00)
    {
-      PORTDbits.RD0 = 0;
+      //PORTDbits.RD0 = 0;
+      LATDbits.LATD0 = 0;
    }
    else if ( deviceNumber == 0x01)
    {
-       PORTDbits.RD1 = 0;
+       //PORTDbits.RD1 = 0;
+  LATDbits.LATD1 = 0;
    }
    else if(deviceNumber == 0x02)
    { 
-        PORTDbits.RD2 = 0;
+        //PORTDbits.RD2 = 0;
+  LATDbits.LATD2 = 0;
    } 
    else 
    {
@@ -72,15 +75,18 @@
 //	PORTAbits.RA4 = 1;
    if (deviceNumber == 0x00)
    {
-      PORTDbits.RD0 = 1;
+     // PORTDbits.RD0 = 1;
+     LATDbits.LATD0 = 1;
    }
    else if ( deviceNumber == 0x01)
    {
-       PORTDbits.RD1 = 1;
+     //  PORTDbits.RD1 = 1;
+         LATDbits.LATD1 = 1;
    }
    else if(deviceNumber == 0x02)
    { 
-        PORTDbits.RD2 = 1;
+       // PORTDbits.RD2 = 1;
+          LATDbits.LATD2 = 1;
    } 
    else 
    {
@@ -104,7 +110,8 @@ unsigned char mcp_read_register(unsigned char adress,unsigned char device)
     putcSPI(SPI_MCP_READ);
     putcSPI(adress);
     data = ReadSPI();
-	
+    Delay10TCYx(0x01);
+    
     chip_enactive(device);
 
 	return data;
@@ -266,7 +273,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //loop back is used for debugging CAN applications
 //This mode allows to load the messages that you send
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
- 
+ /*
  void mcp2515_loopBack(unsigned char device)
  {
 	char value;
@@ -277,7 +284,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 	
 	value = mcp_read_register(CANCTRL, device);
 	
-	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != ( 1<< REQOP1), device ) 
+	if ((value & (1 << REQOP0 | 1 << REQOP1 | 1 << REQOP2)) != ( 1<< REQOP1), device )  //What
 	{
 		printf("\r Error in setting to loopBack mode  CANSTAT = %b \n", value);
 		return;
@@ -289,7 +296,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
  
 	
  }
- 
+ */
  
 //mcp2515_config mode
 //--------------
@@ -350,7 +357,7 @@ int mcp_init( unsigned char device, unsigned char *config)
     //ECCP1AS = 0b00000010;
     //CCP1CON = 0b00000000;
     //TRISA = 0x0F;
-    TRISD = 0b11111000; //temp
+  //  TRISD = 0b00000000;//0b11111000; //temp
     // 16 Mhz crystal at a speed of 125k works a treat
     /*
 	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
@@ -459,7 +466,8 @@ char mcp2515_read_status(char type,unsigned char device)
 	chip_active(device); 
 	putcSPI(type);
 	data = ReadSPI();
-	
+	 Delay10TCYx(0x01);
+
 	chip_enactive(device);
 	return data;
 }
@@ -751,17 +759,29 @@ void setmppt(unsigned char *buff)
     buff[2] = ((1 <<BTLMODE) | (1 <<SAM)  | (1<<PHSEG12) | (1<<PHSEG11) | (1<<PHSEG0) ); //Value for CNF2
     buff[3] = ((1<<PHSEG20) |(1<<PHSEG22)); //Value for CNF3 
 }
+
 /*
 	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
 	timingReg[1] = 0;					  //Value for CNF1
 	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)   | (1<<PHSEG1) | (1<<PHSEG0) ); //Value for CNF2
 	timingReg[3] =  (1<<PHSEG22); //Value for CNF3 
 	*/
+
 void setmc(unsigned char *buff)
 {
     buff[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
-    buff[1] = 0;				  //Value for CNF1
-    buff[2] = ((1 <<BTLMODE) | (1 <<SAM)   | (1<<PHSEG1) | (1<<PHSEG0) ); //Value for CNF2
-    buff[3] = (1<<PHSEG22); //Value for CNF3 
+    buff[1] = ( 1 << SJW0);				  //Value for CNF1
+    buff[2] = ((1 <<BTLMODE)  | (1<<PHSEG1) | (1<<PHSEG0) ); //Value for CNF2
+    buff[3] = (1<<PHSEG22 ); //Value for CNF3 
 }
 
+void selectNoDevice()
+{
+ TRISD = 0b00000000; //temp
+    ECCP1AS = 0b00000010;
+TRISE = 0b00000000;
+	chip_enactive(0x00);
+	chip_enactive(0x01);
+	chip_enactive( 0x02);
+	return;
+}

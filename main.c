@@ -62,12 +62,45 @@ void main()
 		int test;
 		unsigned char del;
 		stCanFrame sample;
-        unsigned char mpptDevice = 0x02;
-        unsigned char deviceMC = 0x01;
+        unsigned char mpptDevice = 0x01;
+        unsigned char deviceMC = 0x02;
 	    unsigned char mpptCanConfig[4];
         unsigned char mcCanConfig[4];
-       
+
+        selectNoDevice();
+		delay();
+
+
+
+
+
+
+        setmppt(mpptCanConfig);
+        test = mcp_init(mpptDevice, mpptCanConfig);
+		
+        printf("\r debug %x %x %x %x\n", mpptCanConfig[0],mpptCanConfig[1],mpptCanConfig[2],mpptCanConfig[3]);
+		while ( test != 0)
+		{
+			printf("\rMPPT . Failer to init MCP 2515, reseting \n");
+			test = mcp_init(mpptDevice, mpptCanConfig);
+		}
+  
+		printf("\r SPI for MCP_2515 is open \n");
+
+		mcp2515_normal(mpptDevice);
+//chip_enactive(0x02);
+
+        delay();
+
+         //chip_enactive(0x02);
+        //selectNoDevice();
+        //chip_enactive(mpptDevice);
+	//	printf("\r %x\n",mpptDevice);
+    
+
+
         setmc(mcCanConfig);
+        printf("\r debug %x %x %x %x\n",mcCanConfig[0],mcCanConfig[1],mcCanConfig[2],mcCanConfig[3]);
         test = mcp_init(deviceMC,mcCanConfig);
         while(test !=0)
         {
@@ -75,18 +108,17 @@ void main()
 		    test = mcp_init(deviceMC,mcCanConfig);
         }
 	    mcp2515_normal(deviceMC);
+        delay();
 
 
-        setmppt(mpptCanConfig);
-		test = mcp_init(mpptDevice, mpptCanConfig);
-		while ( test != 0)
-		{
-			printf("\rMPPT . Failer to init MCP 2515, reseting \n");
-			test = mcp_init(mpptDevice, mpptCanConfig);
-		}
-		printf("\r SPI for MCP_2515 is open \n");
-		mcp2515_normal(mpptDevice);
+        while(1){}
 		
+
+
+
+
+
+
 		if (bit_is_set(0b10111111,6))
 			printf("\r Error -simple bit shift fails \n");
 		else	
@@ -164,7 +196,8 @@ void main()
 			sample.data[3] = 0x70;
 			
 			sample.rtr =0 ;//=0xff;// 0x00;
-		
+
+/*		
 			mcp2515_send_message(&sample, 0x02,mpptDevice);
 
 			
@@ -184,12 +217,14 @@ void main()
 			    parsMppt((result.data), data);
 			 	delay();
 			}
-
+*/
+  
+      	Delay10TCYx(0x30);
 		 if(mcp2515_get_message(&result ,deviceMC))
 		{
                printf("\r MOTOR CONROLLER \n");
 	           printf("\rThe address is %x \n",result.id);
-               printf("\rThe lenght is %i \n",result.length);
+               printf("\rThe length is %i \n",result.length);
                counter = 0;
 				while(counter < result.length)
 				{
@@ -198,7 +233,14 @@ void main()
 					counter++;	
 				}
 			 	delay();
-			}
+		 }
+         else
+		 {
+			printf("\r No message\n");
+            //sample code
+             mcp2515_send_message(&result, 0x02,deviceMC);
+            
+		 } 
 
 
 
