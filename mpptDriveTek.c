@@ -8,8 +8,6 @@ void parsMppt( unsigned char *start, mpptData *sampleData)
 unsigned short adcCount;
 
 
-printf("\r\nhello----------------------------------------------------------------\n");
-
 sampleData->status=start[0];
 
 sampleData->voltageIn = adcCount  = ( ((unsigned short) (start[0] & msbForTenBit))) << 8 | start[1];

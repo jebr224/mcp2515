@@ -767,12 +767,21 @@ void setmppt(unsigned char *buff)
 	timingReg[3] =  (1<<PHSEG22); //Value for CNF3 
 	*/
 
+	// 20 Mhz crystal at a speed of 1 Mbit (it looks like it would work, but the transiver is not fast enough
+ 	/*
+	timingReg[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
+	timingReg[1] = 0;					  //Value for CNF1
+	timingReg[2] = ((1 <<BTLMODE) | (1 <<SAM)   | (1<<PHSEG1) | (1<<PHSEG0) ); //Value for CNF2
+	timingReg[3] =  (1<<PHSEG22); //Value for CNF3 
+	*/
+
 void setmc(unsigned char *buff)
 {
     buff[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
-    buff[1] = ( 1 << SJW0);				  //Value for CNF1
-    buff[2] = ((1 <<BTLMODE)  | (1<<PHSEG1) | (1<<PHSEG0) ); //Value for CNF2
-    buff[3] = (1<<PHSEG22 ); //Value for CNF3 
+    buff[1] = (( 1 << SJW1));				  //Value for CNF1
+    buff[2] = ((1 <<BTLMODE)  | (1<<PHSEG11) | (1<<PHSEG1) |  (1<<PHSEG10)); //Value for CNF2
+    buff[3] = (1<<PHSEG20 ); //Value for CNF3 
+
 }
 
 void selectNoDevice()
@@ -785,3 +794,13 @@ TRISE = 0b00000000;
 	chip_enactive( 0x02);
 	return;
 }
+
+/* Works well to read the buss, but blinks the red LED
+void setmc(unsigned char *buff)
+{
+    buff[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
+    buff[1] = (( 1 << SJW0));				  //Value for CNF1
+    buff[2] = ((1 <<BTLMODE)  | (1<<PHSEG11) | (1<<PHSEG1) |  (1<<PHSEG10)); //Value for CNF2
+    buff[3] = (1<<PHSEG20 ); //Value for CNF3 
+}
+*/

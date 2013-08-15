@@ -68,7 +68,7 @@ void main()
         unsigned char mcCanConfig[4];
 
         selectNoDevice();
-		delay();
+
 
 
 
@@ -88,17 +88,9 @@ void main()
 		printf("\r SPI for MCP_2515 is open \n");
 
 		mcp2515_normal(mpptDevice);
-//chip_enactive(0x02);
 
         delay();
-
-         //chip_enactive(0x02);
-        //selectNoDevice();
-        //chip_enactive(mpptDevice);
-	//	printf("\r %x\n",mpptDevice);
-    
-
-
+       
         setmc(mcCanConfig);
         printf("\r debug %x %x %x %x\n",mcCanConfig[0],mcCanConfig[1],mcCanConfig[2],mcCanConfig[3]);
         test = mcp_init(deviceMC,mcCanConfig);
@@ -109,15 +101,6 @@ void main()
         }
 	    mcp2515_normal(deviceMC);
         delay();
-
-
-        while(1){}
-		
-
-
-
-
-
 
 		if (bit_is_set(0b10111111,6))
 			printf("\r Error -simple bit shift fails \n");
@@ -184,9 +167,7 @@ void main()
 			char wast;
 			unsigned char counter = 0, temp;
             
-//		sample.id = 0x42;		
-//			sample.id[0] = 0b11111111;
-//			sample.id[1] = 0b01010101;
+
 			
 			sample.id = 0x711;
 			sample.length = 0;
@@ -197,7 +178,7 @@ void main()
 			
 			sample.rtr =0 ;//=0xff;// 0x00;
 
-/*		
+		
 			mcp2515_send_message(&sample, 0x02,mpptDevice);
 
 			
@@ -217,7 +198,7 @@ void main()
 			    parsMppt((result.data), data);
 			 	delay();
 			}
-*/
+
   
       	Delay10TCYx(0x30);
 		 if(mcp2515_get_message(&result ,deviceMC))
@@ -236,9 +217,9 @@ void main()
 		 }
          else
 		 {
-			printf("\r No message\n");
+			printf("\r No message MC\n");
             //sample code
-             mcp2515_send_message(&result, 0x02,deviceMC);
+          //  mcp2515_send_message(&result, 0x02,deviceMC);
             
 		 } 
 
