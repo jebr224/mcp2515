@@ -10,7 +10,7 @@ unsigned short adcCount;
 
 sampleData->status=start[0];
 
-sampleData->voltageIn = adcCount  = ( ((unsigned short) (start[0] & msbForTenBit))) << 8 | start[1];
+ adcCount  = ( ((unsigned short) (start[0] & msbForTenBit))) << 8 | start[1];
 sampleData->voltageIn = ( (unsigned short) (((float) adcCount * 100 )/  VIN_driveTek_ADC_COUNT_TO_VOLTS )); 
 
 sampleData->currentIn =( ((unsigned short)(start[2] & msbForTenBit)))  <<8 | start[3];

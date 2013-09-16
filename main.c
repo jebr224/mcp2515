@@ -17,6 +17,7 @@
 
 #include "mpptDriveTek.h"
 #include "mcp2515.h"
+#include "tritium20.h"
 #include <p18f4480.h>
 #include <usart.h>
 #include <stdio.h>
@@ -69,30 +70,20 @@ void main()
 
         selectNoDevice();
 
-
-
-
-
-
-
         setmppt(mpptCanConfig);
-        test = mcp_init(mpptDevice, mpptCanConfig);
-		
-        printf("\r debug %x %x %x %x\n", mpptCanConfig[0],mpptCanConfig[1],mpptCanConfig[2],mpptCanConfig[3]);
+
+        test = mcp_init(mpptDevice, mpptCanConfig);		
 		while ( test != 0)
 		{
-			printf("\rMPPT . Failer to init MCP 2515, reseting \n");
+			printf("\rMPPT. Failer to init MCP 2515, reseting \n");
 			test = mcp_init(mpptDevice, mpptCanConfig);
 		}
-  
-		printf("\r SPI for MCP_2515 is open \n");
-
 		mcp2515_normal(mpptDevice);
+		printf("\rMPPT. Pass init MCP 2515\n");
 
         delay();
        
         setmc(mcCanConfig);
-        printf("\r debug %x %x %x %x\n",mcCanConfig[0],mcCanConfig[1],mcCanConfig[2],mcCanConfig[3]);
         test = mcp_init(deviceMC,mcCanConfig);
         while(test !=0)
         {
@@ -100,6 +91,7 @@ void main()
 		    test = mcp_init(deviceMC,mcCanConfig);
         }
 	    mcp2515_normal(deviceMC);
+		printf("\rMOTOR CONTROLLER. Pass init MCP 2515\n");
         delay();
 
 		if (bit_is_set(0b10111111,6))
@@ -165,16 +157,14 @@ void main()
 			stCanFrame sample;
 			stCanFrame result;
 			char wast;
+			unsigned char pass = 0;
 			unsigned char counter = 0, temp;
             
 
 			
 			sample.id = 0x711;
 			sample.length = 0;
-			sample.data[0] = 0x40;
-			sample.data[1] = 0xAA;
-			sample.data[2] = 0x60;
-			sample.data[3] = 0x70;
+
 			
 			sample.rtr =0 ;//=0xff;// 0x00;
 
@@ -198,26 +188,31 @@ void main()
 			    parsMppt((result.data), data);
 			 	delay();
 			}
-
-  
-      	Delay10TCYx(0x30);
-		 if(mcp2515_get_message(&result ,deviceMC))
-		{
-               printf("\r MOTOR CONROLLER \n");
-	           printf("\rThe address is %x \n",result.id);
-               printf("\rThe length is %i \n",result.length);
-               counter = 0;
-				while(counter < result.length)
-				{
-					temp = (result.data[counter]);
-					printf("\r  The data att %i  is  %x  \n",counter,temp);
-					counter++;	
-				}
+			pass = 0;
+		//	do{
+      	   		Delay10TCYx(0x30);
+		   		if(mcp2515_get_message(&result ,deviceMC))
+		   		{
+                 printf("\r MOTOR CONROLLER \n");
+	        //   printf("\rThe address is %x \n",result.id);
+            //   printf("\rThe length is %i \n",result.length);
+            //   counter = 0;
+			//	while(counter < result.length)
+			//	{
+			//		temp = (result.data[counter]);
+			//		printf("\r  The data att %i  is  %x  \n",counter,temp);
+			//		counter++;	
+			//	}
+				
+				pass = parsMC((result.data), result.id,data);
 			 	delay();
-		 }
-         else
-		 {
-			printf("\r No message MC\n");
+		 		}
+		//	}
+    	//	while(pass != 0);
+
+         //else
+	//	 {
+	//		printf("\r No message MC\n");
             //sample code
           //  mcp2515_send_message(&result, 0x02,deviceMC);
             
@@ -226,9 +221,7 @@ void main()
 
 
 
-		
-
-	}	
+			
 }	
 
 
