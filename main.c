@@ -151,6 +151,9 @@ void main()
 			Delay10TCYx(0x30);
 		}
 */
+
+
+
 		while(1)
 		{	
             mpptData data;
@@ -171,6 +174,8 @@ void main()
 		
 			mcp2515_send_message(&sample, 0x02,mpptDevice);
 
+         	getMessagesThatLookLike(&(sample.id), deviceMC);
+
 			
 
 			Delay10TCYx(0x30);
@@ -182,7 +187,7 @@ void main()
 				while(counter < result.length)
 				{
 					temp = (result.data[counter]);
-					printf("\r  The data att %i  is  %x  \n",counter,temp);
+					printf("\r  The data at %i  is  %x  \n",counter,temp);
 					counter++;	
 				}
 			    parsMppt((result.data), data);

@@ -6,8 +6,9 @@ Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB
 Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 94 : type qualifier mismatch in assignment
 Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 98 : type qualifier mismatch in assignment
 Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 100 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 181 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 185 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 188 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 196 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 207 : call of function without prototype
+Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 177 : call of function without prototype
+Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 186 : type qualifier mismatch in assignment
+Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 190 : type qualifier mismatch in assignment
+Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 193 : call of function without prototype
+Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 201 : type qualifier mismatch in assignment
+Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 212 : call of function without prototype

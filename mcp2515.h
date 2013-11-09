@@ -42,3 +42,5 @@ void setmppt( unsigned char *buff);
 
 void setmc(unsigned char *mcCanConfig);
 
+//void getMessagesThatLookLike(char * prt,unsigned chardevice);
+

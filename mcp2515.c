@@ -487,6 +487,31 @@ void inputFiltersOff(unsigned char device)
 	return;
 } 
 
+//inputFiltersON_RX_0
+void inputFilersON_RX_0(unsigned char device)
+{
+	mcp2515_config(device);
+	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR) | (1<< FILHIT0 )),device);
+	mcp2515_normal(device);
+}
+
+//getMessagesThatLookLike
+//------------------------
+//page 34 setting RXF1SIDH and RXF1SIDL
+//This command will set the filter for the RX_0.
+// example  message -> 0111001 filter -> 0111001 will recive a message
+// example  message -> 0111001 filter -> 0000000 will recive a message
+// example  message -> 0111001 filter -> 0000010 will NOT recive a message
+
+void getMessagesThatLookLike(char * prt,unsigned char device)
+{
+    inputFilersON_RX_0(device);
+	mcp2515_config(device);
+    mcp_write_adress(RXF1SIDH, prt[0],device);
+    mcp_write_adress(RXF1SIDL, prt[1],device);
+	mcp2515_normal(device);
+}
+
 
 char mcp2515_get_message(stCanFrame *inMessage, unsigned char device)
 {

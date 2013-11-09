@@ -3,7 +3,8 @@
 
 
 
-void parsMppt( unsigned char *start, mpptData *sampleData)
+void parsMppt( unsigned char 
+*start, mpptData *sampleData)
 {
 unsigned short adcCount;
 
@@ -20,7 +21,7 @@ adcCount = ( ((unsigned short)(start[4] & msbForTenBit))) <<8 | start[5];
 sampleData->voltageOut  = ( (unsigned short) (((float) adcCount * 100 )/  VOUT_driveTek_ADC_COUNT_TO_VOLTS )); 
 
 sampleData->temp = start[6];
-printf("\n\rthe inVoltage is %i ,and the out current is %i  and the outVoltage is %i\n\n",sampleData->voltageIn,sampleData->currentIn,sampleData->voltageOut);
+//printf("\n\rthe inVoltage is %i ,and the out current is %i  and the outVoltage is %i\n\n",sampleData->voltageIn,sampleData->currentIn,sampleData->voltageOut);
 
 //return sampleData;
 return;
