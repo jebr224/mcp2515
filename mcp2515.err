@@ -1,57 +1,61 @@
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 57 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 60 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 93 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 96 : call of function without prototype
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 113 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 178 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 182 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 207 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 211 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 226 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 230 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 232 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 259 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 263 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 324 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 327 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 333 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 403 : call of function without prototype
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 408 : call of function without prototype
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 442 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 446 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 451 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 469 : call of function without prototype
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 494 : shift expression has no effect
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 527 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 544 : type qualifier mismatch in assignment
-Warning[2062] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 553 : '->' operator expected, not '.'
-Warning[2062] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 558 : '->' operator expected, not '.'
-Warning[2062] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 562 : '->' operator expected, not '.'
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 583 : shift expression has no effect
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 584 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 589 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 604 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 610 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 617 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 640 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 645 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 647 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 649 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 652 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 656 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 684 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 690 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 697 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 716 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 721 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 723 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 725 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 728 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 732 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 755 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 756 : type qualifier mismatch in assignment
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 782 : shift expression has no effect
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 784 : shift expression has no effect
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 785 : shift expression has no effect
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 805 : shift expression has no effect
-Warning[2060] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\mcp2515.c 808 : shift expression has no effect
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 57 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 60 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 93 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 96 : call of function without prototype
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 113 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 178 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 182 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 207 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 211 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 226 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 230 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 232 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 259 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 263 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 324 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 327 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 333 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 403 : call of function without prototype
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 408 : call of function without prototype
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 442 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 446 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 451 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 469 : call of function without prototype
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 494 : shift expression has no effect
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 521 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 522 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 538 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 544 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 549 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 555 : type qualifier mismatch in assignment
+Warning[2062] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 564 : '->' operator expected, not '.'
+Warning[2062] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 569 : '->' operator expected, not '.'
+Warning[2062] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 573 : '->' operator expected, not '.'
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 594 : shift expression has no effect
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 595 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 600 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 615 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 621 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 628 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 651 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 656 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 658 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 660 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 663 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 667 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 695 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 701 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 708 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 727 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 732 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 734 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 736 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 739 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 743 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 766 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 767 : type qualifier mismatch in assignment
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 793 : shift expression has no effect
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 795 : shift expression has no effect
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 796 : shift expression has no effect
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 816 : shift expression has no effect
+Warning[2060] C:\Users\jebr224\Desktop\john\mcp2515\mcp2515.c 819 : shift expression has no effect

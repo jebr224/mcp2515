@@ -68,6 +68,8 @@ void main()
 	    unsigned char mpptCanConfig[4];
         unsigned char mcCanConfig[4];
 
+        	unsigned short filterID = 0x502;
+
         selectNoDevice();
 
         setmppt(mpptCanConfig);
@@ -153,7 +155,7 @@ void main()
 */
 
 
-
+     	getMessagesThatLookLike(&(filterID), deviceMC);
 		while(1)
 		{	
             mpptData data;
@@ -163,6 +165,7 @@ void main()
 			unsigned char pass = 0;
 			unsigned char counter = 0, temp;
             
+			//unsigned short filterID = 0x502;
 
 			
 			sample.id = 0x711;
@@ -174,7 +177,9 @@ void main()
 		
 			mcp2515_send_message(&sample, 0x02,mpptDevice);
 
-         	getMessagesThatLookLike(&(sample.id), deviceMC);
+
+		 
+         //	getMessagesThatLookLike(&(filterID), deviceMC);
 
 			
 
@@ -199,15 +204,15 @@ void main()
 		   		if(mcp2515_get_message(&result ,deviceMC))
 		   		{
                  printf("\r MOTOR CONROLLER \n");
-	        //   printf("\rThe address is %x \n",result.id);
-            //   printf("\rThe length is %i \n",result.length);
-            //   counter = 0;
-			//	while(counter < result.length)
-			//	{
-			//		temp = (result.data[counter]);
-			//		printf("\r  The data att %i  is  %x  \n",counter,temp);
-			//		counter++;	
-			//	}
+	             printf("\rThe address is %x \n",result.id);
+                 printf("\rThe length is %i \n",result.length);
+                 counter = 0;
+				while(counter < result.length)
+				{
+					temp = (result.data[counter]);
+					printf("\r  The data att %i  is  %x  \n",counter,temp);
+					counter++;	
+				}
 				
 				pass = parsMC((result.data), result.id,data);
 			 	delay();

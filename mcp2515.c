@@ -491,7 +491,8 @@ void inputFiltersOff(unsigned char device)
 void inputFilersON_RX_0(unsigned char device)
 {
 	mcp2515_config(device);
-	mcp_write_adress(RXB0CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR) | (1<< FILHIT0 )),device);
+	mcp_write_adress(RXB0CTRL, ((1<<RXM1) | (1<<RXRTR) | (0<< FILHIT0 )),device);
+	//mcp_write_adress(RXB1CTRL, ((1<<RXM1)|(1<<RXM0) | (1<<RXRTR) | (1<< FILHIT0 )),device); //NOT Needed
 	mcp2515_normal(device);
 }
 
@@ -499,17 +500,27 @@ void inputFilersON_RX_0(unsigned char device)
 //------------------------
 //page 34 setting RXF1SIDH and RXF1SIDL
 //This command will set the filter for the RX_0.
-// example  message -> 0111001 filter -> 0111001 will recive a message
-// example  message -> 0111001 filter -> 0000000 will recive a message
-// example  message -> 0111001 filter -> 0000010 will NOT recive a message
 
-void getMessagesThatLookLike(char * prt,unsigned char device)
+
+void getMessagesThatLookLike(unsigned short * prt,unsigned char device)
 {
+    unsigned char temp;
     inputFilersON_RX_0(device);
 	mcp2515_config(device);
-    mcp_write_adress(RXF1SIDH, prt[0],device);
-    mcp_write_adress(RXF1SIDL, prt[1],device);
+    mcp_write_adress(RXM0SIDH,0xFF,device);
+    mcp_write_adress(RXM0SIDL,0xFF,device);
+
+    temp = (unsigned char) (prt[0] >> 3);
+    mcp_write_adress(RXF0SIDH, temp,device);
+    temp = (unsigned char) (prt[0] << 5); 
+    mcp_write_adress(RXF0SIDL, prt[0] << 5 ,device);
+
+
 	mcp2515_normal(device);
+
+    printf("%x \n",prt[0]);
+    printf("%x \n",prt[1]);
+
 }
 
 
@@ -530,12 +541,12 @@ char mcp2515_get_message(stCanFrame *inMessage, unsigned char device)
 
 	//lets see if any of the can registers have a message
 	if (bit_is_set(status,6)) {
-     	//printf("\rYou got Main in 1 \n");
+     	printf("\rYou got Mail in 1 \n");
 		addr = SPI_MCP_READ_RX;
 
 	}
 	else if (bit_is_set(status,7)) {
-		//printf("\rYou got Mail in 2 \n");
+		printf("\rYou got Mail in 2 \n");
 		addr = SPI_MCP_READ_RX | 0x04;
 	
 	}

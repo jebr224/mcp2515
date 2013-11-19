@@ -1,14 +1,17 @@
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 51 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 71 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 78 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 82 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 90 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 94 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 98 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 100 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 177 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 186 : type qualifier mismatch in assignment
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 190 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 193 : call of function without prototype
-Warning[2066] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 201 : type qualifier mismatch in assignment
-Warning[2058] C:\Documents and Settings\UK Solar Car\Desktop\john\mpc2515\MP_LAB\mcp2515\main.c 212 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 51 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\main.c 73 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 80 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 84 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 92 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 96 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 100 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 102 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\main.c 158 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 191 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 195 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\main.c 198 : call of function without prototype
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 206 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 207 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 208 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\main.c 213 : type qualifier mismatch in assignment
+Warning[2058] C:\Users\jebr224\Desktop\john\mcp2515\main.c 217 : call of function without prototype
