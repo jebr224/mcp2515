@@ -1,3 +1,4 @@
-Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\tritium20.c 9 : type qualifier mismatch in assignment
-Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\tritium20.c 13 : type qualifier mismatch in assignment
-Warning[2066] C:\Users\jebr224\Desktop\john\mcp2515\tritium20.c 18 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\repos\mcp2515\tritium20.c 9 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\repos\mcp2515\tritium20.c 13 : type qualifier mismatch in assignment
+Warning[2066] C:\Users\jebr224\Desktop\john\repos\mcp2515\tritium20.c 18 : type qualifier mismatch in assignment
+Warning[2060] C:\Users\jebr224\Desktop\john\repos\mcp2515\tritium20.c 28 : shift expression has no effect

@@ -15,10 +15,16 @@ unsigned char parsMC(unsigned char *start, unsigned short id, mcData *outControl
       outController->speed   = *temp * wheelRadius;
       temp = (float *) start+4;
       outController->current = *temp;
-      printf("\n\rthe Speed is is %i ,and the current is %i \n", outController->speed, outController->current);
+      printf("\n\n\rthe Speed is is %i ,and the current is %i \n", outController->speed, outController->current);
 
 	  pass = 1;
 	
    }
 return pass;
+}
+
+int convertToInt(char * data, int factor)
+{
+    float ans = (data[0] >> 24 )| (data[1] >> 16 )|( data[2] >> 8 )|(data[3] >> 0);
+    return (int)(ans * 100);
 }

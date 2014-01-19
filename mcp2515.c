@@ -5,6 +5,7 @@
 
 #include "mcp2515_defs_JB.h"
 
+unsigned char g_mcpDebug = 0;
 
 //bit_is_set
  //----------
@@ -208,7 +209,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 		return;
 	}else 
 	{
-		printf("\r status was set to sleep mode \n");
+		if(g_mcpDebug) printf("\r status was set to sleep mode \n");
 		return;
 	}
  
@@ -227,7 +228,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 	
 	value = mcp_read_register(CANINTE,device);
 	if (value & (1 << WAKIE))
-		printf("\r status was set to Awake mode \n");	
+		if(g_mcpDebug) printf("\r status was set to Awake mode \n");	
 	else 
 		printf("\r Wake up failed \n");
 	return;
@@ -260,7 +261,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 		return;
 	}else 
 	{
-		printf("\r status was set to listen mode \n");
+		if(g_mcpDebug) printf("\r status was set to listen mode \n");
 		return;
 	}
  
@@ -324,7 +325,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 		printf("\r Error in setting to config mode CANSTAT = %b \n", value);
 	}else 
 	{
-		printf("\r status was set to config mode \n");
+		if(g_mcpDebug) printf("\r status was set to config mode \n");
 	}
  
     //this looks stupid
@@ -517,10 +518,11 @@ void getMessagesThatLookLike(unsigned short * prt,unsigned char device)
 
 
 	mcp2515_normal(device);
-
-    printf("%x \n",prt[0]);
-    printf("%x \n",prt[1]);
-
+	if(g_mcpDebug)
+    {
+        printf("%x \n",prt[0]);
+        printf("%x \n",prt[1]);
+    } 
 }
 
 
@@ -535,24 +537,24 @@ char mcp2515_get_message(stCanFrame *inMessage, unsigned char device)
 	unsigned char data[20];
 	
 	dispError(device);
-	printf("\r RX_status -> %b \n",status);
+	if(g_mcpDebug) printf("\r RX_status -> %b \n",status);
 
 
 
 	//lets see if any of the can registers have a message
 	if (bit_is_set(status,6)) {
-     	printf("\rYou got Mail in 1 \n");
+     	if ( g_mcpDebug) printf("\rYou got Mail in 1 \n");
 		addr = SPI_MCP_READ_RX;
 
 	}
 	else if (bit_is_set(status,7)) {
-		printf("\rYou got Mail in 2 \n");
+		if(g_mcpDebug) printf("\rYou got Mail in 2 \n");
 		addr = SPI_MCP_READ_RX | 0x04;
 	
 	}
 	else {
 		// you have no message available
-		printf("\rThere is no message in the buffer \n");
+		if(g_mcpDebug) printf("\rThere is no message in the buffer \n");
 		return 0;
 	}
 
@@ -592,12 +594,12 @@ char mcp2515_get_message(stCanFrame *inMessage, unsigned char device)
 	if( bit_is_set(status,6))
 	{
 		 mcp2515_bit_modify(CANINTF, (1<<RX0IF),0, device);
-		printf("\r mod1 \n");
+		if(g_mcpDebug) printf("\r mod1 \n");
 	}
 	else
 	{
 		 mcp2515_bit_modify(CANINTF, (1<<RX1IF),0,device);
-			printf("\r mod 2\n");
+			if(g_mcpDebug) printf("\r mod 2\n");
 	}
 	return addr;
 }
@@ -625,7 +627,7 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg, unsig
 	topID =(split[0] << 5);
 	bottomID = ((split[0] >> 3) |(split[1] << 5));
 	
-	printf("\rtesting id %x, and %b message length %i\n",(*message).id ,(*message).id, (*message).length) ;
+	if(g_mcpDebug) printf("\rtesting id %x, and %b message length %i\n",(*message).id ,(*message).id, (*message).length) ;
 	
 
 	chip_active(device);
@@ -648,19 +650,19 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg, unsig
 	if ((*message).rtr) {
 		// a rtr-frame has a length, but contains no data
 		putcSPI((1<<RTR) | length);
-		printf("\rrtr != 0\n");
+		if(g_mcpDebug) printf("\rrtr != 0\n");
 	}
 	else {
 		// set message length
 		putcSPI(length);
-		printf("\rrtr == 0\n");
+		if(g_mcpDebug) printf("\rrtr == 0\n");
 		// data
-		printf("\r writting data \n");
+		if(g_mcpDebug) printf("\r writting data \n");
 		for (t=0;t<length;t++) {
-			printf("[%x]",(*message).data[t]);
+			if(g_mcpDebug) printf("[%x]",(*message).data[t]);
 			putcSPI((*message).data[t]);
 		}
-		printf("\n");
+		if(g_mcpDebug) printf("\n");
 	}
 	chip_enactive(device);
 	
@@ -762,9 +764,11 @@ void dispError(unsigned char device)
 	unsigned char tec_error = mcp_read_register(TEC,device);
 	unsigned char error_flags =mcp_read_register(EFLG,device);
 
-	
-	printf("\r the rec_error is %i and the tec error is %i  \n",rec_error, tec_error);
-	printf("\rThe error byte -> %b \n",error_flags);
+	if(g_mcpDebug)
+	{
+		printf("\r the rec_error is %i and the tec error is %i  \n",rec_error, tec_error);
+		printf("\rThe error byte -> %b \n",error_flags);
+	}
 	return; 
 }
 
