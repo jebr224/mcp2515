@@ -195,6 +195,8 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 //NOTE: If the time perscaler for CLOCK out on the 2515 has been set, this will unset it(sorry) FIXED
 //NORMAL MODES 350 to 280 mA
 
+//The code works, but due to code space limitations this will be comminted out
+/*
  void mcp2515_sleep(unsigned char device)
  {
 	char value;
@@ -214,9 +216,12 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 	}
  
  }
+*/
+
  //mcp2515_wakeUp()
  //---------------
- 
+ //The code works, but due to code space limitations this will be comminted out
+/*
  void mcp2515_wakeUp(unsigned char device)
  {
 	unsigned char value;
@@ -235,6 +240,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 	
 	
  }
+*/
  
  
 
@@ -558,6 +564,8 @@ char mcp2515_get_message(stCanFrame *inMessage, unsigned char device)
 		return 0;
 	}
 
+
+
 	chip_active(device);
 	putcSPI(addr);
 	id =0;
@@ -684,7 +692,7 @@ unsigned char mcp2515_send_message(stCanFrame *message, unsigned char reg, unsig
 
 
 
-
+/*
 unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg, unsigned char device)
 {
 
@@ -754,7 +762,7 @@ unsigned char mcp2515_send_ex_message(stCanFrame *message, unsigned char reg, un
 	
 	return 1;
 }
-
+*/
 
 
  
@@ -822,6 +830,14 @@ void setmc(unsigned char *buff)
     buff[2] = ((1 <<BTLMODE)  | (1<<PHSEG11) | (1<<PHSEG1) |  (1<<PHSEG10)); //Value for CNF2
     buff[3] = (1<<PHSEG20 ); //Value for CNF3 
 
+}
+
+void setBPS(unsigned char *buff)
+{
+    buff[0] = ((1<<RX1IE)|(1<<RX0IE));       //Value for CANINTE
+    buff[1] = (( 1 << SJW0)|(1<<BRP2));					  //Value for CNF1
+    buff[2] = ((1 <<BTLMODE) | (1 <<SAM)  | (1<<PHSEG12) | (1<<PHSEG11) | (1<<PHSEG0) ); //Value for CNF2
+    buff[3] = ((1<<PHSEG20) |(1<<PHSEG22)); //Value for CNF3 
 }
 
 void selectNoDevice()

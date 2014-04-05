@@ -1,11 +1,34 @@
-#include <stdio.h>
-#include "mpptDriveTek.h"
-
-
-
-void parsMppt( unsigned char 
-*start, mpptData *sampleData)
+//#include <stdio.h>
+//#include "mpptDriveTek.h"
+/*
+unsigned int decodeValueMPPT(int* place)
 {
+   unsigned int  value;
+   value = (*(place) & 0x3fff);
+   return value;
+}
+*/
+
+//unsigned int decodeValueMPPT(int* place)
+//{
+ // unsigned char *start =(unsigned char*) place;
+  //return (((unsigned short) (start[0] & msbForTenBit))) << 8 | start[1];
+
+//}
+/*
+void parsMppt( unsigned char  *start, mpptData *sampleData)
+{
+
+
+	unsigned short adcCount;
+	//int voltageIn;
+	adcCount = (((unsigned short) (start[0] & msbForTenBit))) << 8 | start[1];
+	//printf("\r 1 = %i,   1 = %i\n",adcCount, ans);
+}
+*/
+
+
+/*
 unsigned short adcCount;
 
 
@@ -25,4 +48,5 @@ sampleData->temp = start[6];
 
 //return sampleData;
 return;
-}
+
+*/

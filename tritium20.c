@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include "tritium20.h"
 
@@ -28,3 +29,8 @@ int convertToInt(char * data, int factor)
     float ans = (data[0] >> 24 )| (data[1] >> 16 )|( data[2] >> 8 )|(data[3] >> 0);
     return (int)(ans * 100);
 }
+
+*/
+
+
+int waste;
