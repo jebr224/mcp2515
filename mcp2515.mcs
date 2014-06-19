@@ -9,25 +9,12 @@ LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\bin\mcc18.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18||$(LIBDIR)|C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\lib||$(LKRDIR)||
-SOLK=<src>|main.c|mpptDriveTek.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|main.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File001]
-Location=C:\Users\jebr224\Desktop\john\repos\mcp2515\mpptDriveTek.o
-Folder=Intermediary
-DeviceName=PIC18F4480
-LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
-LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
-LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\bin\mcc18.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18||$(LIBDIR)|C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\lib||$(LKRDIR)||
-SOLK=<src>|main.c|mpptDriveTek.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
-SuiteArgsString=
-ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
-TraceCmdString=
-DebugOptions=
-[File002]
 Location=C:\Users\jebr224\Desktop\john\repos\mcp2515\mcp2515.o
 Folder=Intermediary
 DeviceName=PIC18F4480
@@ -35,12 +22,12 @@ LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\bin\mcc18.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18||$(LIBDIR)|C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\lib||$(LKRDIR)||
-SOLK=<src>|main.c|mpptDriveTek.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|main.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
-[File003]
+[File002]
 Location=C:\Users\jebr224\Desktop\john\repos\mcp2515\tritium20.o
 Folder=Intermediary
 DeviceName=PIC18F4480
@@ -48,12 +35,12 @@ LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\bin\mcc18.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18||$(LIBDIR)|C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\lib||$(LKRDIR)||
-SOLK=<src>|main.c|mpptDriveTek.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|main.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
-[File004]
+[File003]
 Location=C:\Users\jebr224\Desktop\john\repos\mcp2515\mcp2515.cof
 Folder=Output
 DeviceName=PIC18F4480
@@ -61,12 +48,12 @@ LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\bin\mplink.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18||$(LIBDIR)|C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\lib||$(LKRDIR)||
-SOLK=<src>|main.c|mpptDriveTek.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|main.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /W
 TraceCmdString=
 DebugOptions=
-[File005]
+[File004]
 Location=C:\Users\jebr224\Desktop\john\repos\mcp2515\mcp2515.hex
 Folder=Output
 DeviceName=PIC18F4480
@@ -74,7 +61,7 @@ LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\bin\mplink.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18||$(LIBDIR)|C:\Program Files (x86)\Microchip\mplabc18\v3.37.01\lib||$(LKRDIR)||
-SOLK=<src>|main.c|mpptDriveTek.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|main.c|mcp2515.c|tritium20.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /W
 TraceCmdString=

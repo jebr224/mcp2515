@@ -180,7 +180,7 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 		return;
 	}else 
 	{
-		printf("\rstatus was set to normal mode\n");
+//		printf("\rstatus was set to normal mode\n");
 		return;
 	}
  
@@ -343,7 +343,10 @@ void mcp2515_bit_modify(unsigned char adress, unsigned char mask, unsigned char 
 void mcp2515_oneShot(unsigned char device)		//FIX THIS LATER //One shot mode changes the CANCTRL reg 
 {
 	chip_active(device);
-	mcp_write_adress( CANCTRL, ( 1 << OSM), device);
+//	mcp_write_adress( CANCTRL, ( 1 << OSM), device);
+	mcp2515_bit_modify(CANCTRL,  ( 1 << OSM),  ( 1 << OSM), device) ;
+   
+
 	chip_enactive(device);
 
 }
